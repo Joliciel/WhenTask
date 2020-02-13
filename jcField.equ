@@ -1,0 +1,90 @@
+
+
+
+jcField::Dot        EQUATE('.')
+jcField::EqualTo    EQUATE(' = ')
+jcField::Hyphen     EQUATE('-')
+jcField::Data       EQUATE('DataLog.txt')
+
+!Assign in jcDebugManager.Init()to the jcDebugManager.SetRespectingAreaShow()<br/>and be used by jcDebugManager.PrepareShow() through jcDebugManager.GetRespectingAreaShow() to validate<br/>if the PrepareShow must respect or not the CurrentShow set.<br/>A value of TRUE will respect the CurrentShow in PrepareShow procedure<br/>otherwise if a Show parameter is assigned FALSE will not respect the currentShow.
+JC_FIELD_jcFieldManager_jcDebugManager_RespectingAreaShow EQUATE(FALSE)
+!Set Current Show AreaType = All Area of the same type; Area = Some Area of the same type.<br/><br/>The list of AreaType are<br/>  Application Show, Program Show, Procedure Show, Class Show, Method Show,<br/>  Routine Show, Code Show, Embed Show, Note Show, Header Show, Description Show and Comment Show.<br/>  their equates representation are : <br/> jcDebug::ApplicationShow, jcDebug::ProgramShow, jcDebug::ClassShow, jcDebug::MethodShow, jcDebug::ProcShow,  jcDebug::CodeShow, jcDebug::EmbedShow, <br/> jcDebug::NoteShow, jcDebug::HeaderShow,  jcDebug::DescriptionShow and jcDebug::CommentShow<br/><br/>ex. The AreaType is All "Method Show" is ACTIVE or INACTIVE and The Area is Some "Method Show.MethodName(Prototype)" is "SHOWING" or "HIDING".<br/> The format statement of SetCurrentShow is<br/>  SELF.SetCurrentShow('Procedure Show','ProcedureName full string') is the same as <br/>  SELF.SetProcedureName('ProcedureName,'Protype')<br/>  SELF.SetCurrentShow(jcDebug::ProcShow,GetProcedurName())<br/>  The List of the equates to represent each AreaType show are found in jcDebug.equ source file.<br/>  jcDebug::ProcShow EQUATES('Procedure Show')
+JC_FIELD_jcFieldManager_jcDebugManager_SetSelectiveShow   EQUATE(FALSE)
+
+JC_FIELD_jcFieldManager_SetFieldsFormat   EQUATE(3)        !The SetFieldsFormat equate accept a value between 1 and 4.<br/> FieldsFormat 1 = 'FieldName',<br/> FieldsFormat 2 = 'FieldName = FieldData',<br/> FieldsFormat 3 = 'NameOfTheStructure.FieldName = FieldData',<br/> FieldsFormat 4 = 'FieldData'
+JC_FIELD_jcFieldManager_SetFieldsFormatLimit  EQUATE(4)        !The Number of possible Fields Format 
+JC_FIELD_jcFieldManager_SetColumnIndex        EQUATE(TRUE)     !Do the index field from the StackQueue is shown in the first column or not if TRUE the INDEX Column. <br/> From the stackQueue is shown otherwise FALSE the INDEX Column is not shown we start from the first. <br/> Field of the structure or from the SELF.indexField defined.
+JC_FIELD_jcFieldManager_SetColumnIndexLength  EQUATE(7)        !The length of the Index field column taken from the stackQueue that will appear if SELF.ColumnIndex = TRUE            
+JC_FIELD_jcFieldManager_SetIndexField         EQUATE(1)        !Default indexField to the first ordinal field of the structure.<br/><br/>Set the index ordinal Field,<br/><br/> Default to the equate JC_FIELD_jcFieldManager_SetIndexField = 1, the Ordinal index field start with the first field in the Structure.<br/> the structure may be a QUEUE or GROUP.<br/> If the index field is set to 0 then the name of the GROUP structure is included.<br/> the IndexField is used in GetFields() methods 
+
+_WrongFieldType             EQUATE(' is a wrong field type (BYTE, STRING, CSTRING, etc...) Error from ')
+
+jc:isGroup            BYTE(1)
+jc:isQueue            BYTE(2)
+!Field Type
+jc:FILE  		          EQUATE('FILE')
+jc:RECORD   		      EQUATE('RECORD')
+jc:GROUP		          EQUATE('GROUP')
+jc:QUEUE		          EQUATE('QUEUE')
+jc:WINDOW		          EQUATE('WINDOW')
+jc:KEY			          EQUATE('KEY')
+jc:VIEW			          EQUATE('VIEW')
+jc:BLOB			          EQUATE('BLOB')
+jc:REPORT		          EQUATE('REPORT')
+jc:BYTE               EQUATE('BYTE')
+jc:SHORT              EQUATE('SHORT')
+jc:USHORT             EQUATE('USHORT')
+jc:LONG               EQUATE('LONG')
+jc:ULONG              EQUATE('ULONG')
+jc:REAL               EQUATE('REAL')
+jc:SREAL              EQUATE('SREAL')
+jc:DATE               EQUATE('DATE')
+jc:TIME               EQUATE('TIME')
+jc:ANY                EQUATE('ANY')
+jc:ASTRING            EQUATE('ASTRING')
+jc:BFLOAT4            EQUATE('BFLOAT4')
+jc:BFLOAT8            EQUATE('BFLOAT8')
+jc:STRING             EQUATE('STRING')
+jc:CSTRING            EQUATE('CSTRING')
+jc:PSTRING            EQUATE('PSTRING')
+jc:DECIMAL            EQUATE('DECIMAL')
+jc:PDECIMAL           EQUATE('PDECIMAL')
+!Array Field Type
+jcDIM:GROUP		        EQUATE('GROUP[]')
+jcDIM:BYTE            EQUATE('BYTE[]')
+jcDIM:SHORT           EQUATE('SHORT[]')
+jcDIM:USHORT          EQUATE('USHORT[]')
+jcDIM:LONG            EQUATE('LONG[]')
+jcDIM:ULONG           EQUATE('ULONG[]')
+jcDIM:REAL            EQUATE('REAL[]')
+jcDIM:SREAL           EQUATE('SREAL[]')
+jcDIM:DATE            EQUATE('DATE[]')
+jcDIM:TIME            EQUATE('TIME[]')
+jcDIM:ANY             EQUATE('ANY[]')
+jcDIM:ASTRING         EQUATE('ASTRING[]')
+jcDIM:BFLOAT4         EQUATE('BFLOAT4[]')
+jcDIM:BFLOAT8         EQUATE('BFLOAT8[]')
+jcDIM:STRING          EQUATE('STRING[]')
+jcDIM:CSTRING         EQUATE('CSTRING[]')
+jcDIM:PSTRING         EQUATE('PSTRING[]')
+jcDIM:DECIMAL         EQUATE('DECIMAL[]')
+jcDIM:PDECIMAL        EQUATE('PDECIMAL[]')
+
+!Field Type Range Value
+jcRange:Lowest:SHORT      EQUATE(-32768)
+jcRange:Highest:SHORT     EQUATE(32767)
+jcRange:Lowest:USHORT     EQUATE(0)
+jcRange:Highest:USHORT    EQUATE(65535)
+jcRange:Lowest:LONG       EQUATE(-2147483648)
+jcRange:Highest:LONG      EQUATE(2147483647)
+jcRange:Lowest:ULONG      EQUATE(0)
+jcRange:Highest:ULONG     EQUATE(4294967295)
+jcRange:Lowest:DECIMAL    EQUATE(-9999999999999999999999999999999)
+jcRange:Highest:DECIMAL   EQUATE(9999999999999999999999999999999)
+jcRange:Lowest:PDECIMAL   EQUATE(-9999999999999999999999999999999)
+jcRange:Highest:PDECIMAL  EQUATE(9999999999999999999999999999999)
+
+
+MaximumNumberOfFields   EQUATE(250)
+
+  

@@ -1,0 +1,157 @@
+!jcField!This list of equate are the default status of each jcFieldClass methods that are in jcField.clw
+!They are used as a third parameter show for each MethodStart()
+! ex. SELF.Debug.MethodStart('Init',,jcFieldDebugShow:Init)
+
+
+         INCLUDE('jcFieldShowOptions.inc'),ONCE
+         OMIT('_jcFieldShowEquates_',_SelectjcFieldEquatesShow_)
+
+
+jcFieldDebugShow:jcFieldClass             EQUATE(_Show)
+!jcFieldClass jcDebugShow:jcField
+jcFieldDebugShow:Construct                EQUATE(_Show) !PROCEDURE
+jcFieldDebugShow:Destruct                 EQUATE(_Show) !PROCEDURE
+jcFieldDebugShow:Init                     EQUATE(_Show) !PROCEDURE (),VIRTUAL                                        !Init the jcFieldClass class instance
+jcFieldDebugShow:Kill                     EQUATE(_Show) !PROCEDURE (),VIRTUAL                                        !Kill the jcFieldClass class instance
+jcFieldDebugShow:MethodStart              EQUATE(_Show) !PROCEDURE (ASTRING MethodName,<ASTRING Prototype>,<BOOL Show>,<SHORT SpaceMargin>),PRIVATE  !Set Method it check for margin Set the MethodName and MethodStart
+jcFieldDebugShow:MethodEnd                EQUATE(_Show) !PROCEDURE () ,PRIVATE                                       !Show to Debug View the end of the Method
+jcFieldDebugShow:PrepareType              EQUATE(_Show) !PROCEDURE (ASTRING Type),ASTRING,PRIVATE                    !Prepare the Type string evaluation for the next CASE statement
+jcFieldDebugShow:ShowFields               EQUATE(_Show) !PROCEDURE (),PRIVATE                                        !Debug View Showing fields of from SELF.Q
+jcFieldDebugShow:CreateStructure          EQUATE(_Show) !PROCEDURE (ASTRING StructureName),VIRTUAL                   !Create a field structure
+jcFieldDebugShow:SetStructure             EQUATE(_Show) !PROCEDURE (ASTRING StructureName),VIRTUAL                   !Set the field structure name
+jcFieldDebugShow:GetStructure             EQUATE(_Show) !PROCEDURE (),ASTRING,VIRTUAL                                !Get the field structure name
+jcFieldDebugShow:CreateField              EQUATE(_Show) !PROCEDURE (ASTRING FieldName,ASTRING Type,? Value,<ASTRING Format>,<USHORT Length>,<USHORT DecimalLength>),BOOL,PROC, VIRTUAL !CreateField is SetField therefore CreateField the property type BYTE, SHORT, STRING etc..., the optional Length is for STRINGs and DECIMALs properties
+jcFieldDebugShow:SetField                 EQUATE(_Show) !PROCEDURE (ASTRING FieldName,ASTRING Type,? Value,<ASTRING Format>,<USHORT Length>,<USHORT DecimalLength>),BOOL,PROC, PRIVATE !SetField the property type BYTE, SHORT, STRING etc..., the optional Length is for STRINGs and DECIMALs properties
+jcFieldDebugShow:Set                      EQUATE(_Show) !PROCEDURE (ASTRING FieldName,? Value),VIRTUAL               !Set is the data field assignement. the value is assigned to the FieldName
+jcFieldDebugShow:UpdateDefinition         EQUATE(_Show) !PROCEDURE (),VIRTUAL                !Replace the current field definition
+jcFieldDebugShow:SetPairQ                 EQUATE(_Show) !PROCEDURE (*QFields Q,*jcFieldGroupC G)                     !SetPairQ pair fields from a jcFieldGroupC Class to a QFields Queue
+jcFieldDebugShow:SetPairG                 EQUATE(_Show) !PROCEDURE (*jcFieldGroupC G,*QFields Q)                     !SetPairG pair fields from a QFields Queue fields to a jcFieldGroupC Class
+jcFieldDebugShow:Add                      EQUATE(_Show) !PROCEDURE (*QFields Q),BYTE ,PROC, VIRTUAL                   !Add a new field with its parameter the FieldName variable type, value, format, formatedvalue and VariableFieldTypeValue
+jcFieldDebugShow:Add2                     EQUATE(_Show) !PROCEDURE (*QFields Q,*jcFieldGroupC G),BYTE ,PROC, VIRTUAL !Add a new field with its parameter the FieldName variable type, value, format, formatedvalue and VariableFieldTypeValue
+jcFieldDebugShow:Get                      EQUATE(_Show) !PROCEDURE (ASTRING FieldName),?,PROC, VIRTUAL                !Get the Field value according to its variable type if the Field is a BYTE it will return the BYTE value of the Field
+jcFieldDebugShow:WhatIs                   EQUATE(_Show) !PROCEDURE (ASTRING FieldName),ASTRING,VIRTUAL                !What is the type of the field name variable type
+jcFieldDebugShow:FieldTypeIs              EQUATE(_Show) !PROCEDURE (ASTRING Type),ASTRING,VIRTUAL                     !FieldTypeIs returns a string of the variable field type
+jcFieldDebugShow:GetData                  EQUATE(_Show) !PROCEDURE (),?,VIRTUAL                                       !GetData returns the value of the Field according to its variable type
+jcFieldDebugShow:GetSize                  EQUATE(_Show) !PROCEDURE (ASTRING FieldName),LONG,VIRTUAL                    !Get the Size of the field
+jcFieldDebugShow:Update                   EQUATE(_Show) !PROCEDURE (ASTRING FieldName,? ValueReplacement),BOOL,PROC ,VIRTUAL  !Assign a value to the field
+jcFieldDebugShow:Update2                  EQUATE(_Show) !PROCEDURE (ASTRING ValueReplacement),BOOL,PROC ,VIRTUAL     !Replace the Value of the current Field
+jcFieldDebugShow:Delete                   EQUATE(_Show) !PROCEDURE (ASTRING FieldName),BOOL,PROC ,VIRTUAL            !Delete the field
+jcFieldDebugShow:GetString                EQUATE(_Show) !PROCEDURE (? Field),ASTRING,VIRTUAL                         !GetString Returns a string value of any fields
+jcFieldDebugShow:SetTypeOnly              EQUATE(_Show) !PROCEDURE(BOOL Type),VIRTUAL                                !IF type is to true then CSTRING, STRING or STRING[] will return only the field type CSTRING STRING<br/>Otherwise CSTRING(Length) STRING(Length) and STRING[Subscript]
+jcFieldDebugShow:GetTypeOnly              EQUATE(_Show) !PROCEDURE(),BOOL,VIRTUAL                                    !IF type is to true then CSTRING, STRING or STRING[] will return only the field type CSTRING STRING<br/>Otherwise CSTRING(Length) STRING(Length)
+jcFieldDebugShow:Is                       EQUATE(_Show) !PROCEDURE(*FILE Field),ASTRING,VIRTUAL                      !Confirm if the field type is a FILE or not, if true then return 'FILE'
+jcFieldDebugShow:Is2                      EQUATE(_Show) !PROCEDURE(*KEY Field),ASTRING,VIRTUAL                       !Confirm if the field type is a KEY or not, if true then return 'KEY'
+jcFieldDebugShow:Is3                      EQUATE(_Show) !PROCEDURE(*WINDOW Field),ASTRING,VIRTUAL                    !Confirm if the field type is a WINDOW or not, if true then return 'WINDOW'
+jcFieldDebugShow:Is4                      EQUATE(_Show) !PROCEDURE(*REPORT Field),ASTRING,VIRTUAL                    !Confirm if the field type is a REPORT or not, if true then return 'REPORT'
+jcFieldDebugShow:Is5                      EQUATE(_Show) !PROCEDURE(*BLOB Field),ASTRING,VIRTUAL                      !Confirm if the field type is a BLOB not, if true then return 'BLOB'
+jcFieldDebugShow:Is6                      EQUATE(_Show) !PROCEDURE(*VIEW Field),ASTRING,VIRTUAL                      !Confirm if the field type is a VIEW or not, if true then return 'VIEW'
+jcFieldDebugShow:Is7                      EQUATE(_Show) !PROCEDURE(*ANY Field),ASTRING,VIRTUAL                       !Confirm if the field type is a ANY or not, if true then return 'ANY'
+jcFieldDebugShow:Is8                      EQUATE(_Show) !PROCEDURE(*ASTRING Field),ASTRING,VIRTUAL                   !Confirm if the field type is a ASTRING or not, if true then return 'ASTRING'
+jcFieldDebugShow:Is9                      EQUATE(_Show) !PROCEDURE(*BFLOAT4 Field),ASTRING,VIRTUAL                   !Confirm if the field type is a BFLOAT4 or not, if true then return 'BFLOAT4'
+jcFieldDebugShow:Is10                     EQUATE(_Show) !PROCEDURE(*BFLOAT8 Field),ASTRING,VIRTUAL                   !Confirm if the field type is a BFLOAT8 or not, if true then return 'BFLOAT8'
+jcFieldDebugShow:Is11                     EQUATE(_Show) !PROCEDURE(*BYTE Field),ASTRING,VIRTUAL                      !Confirm if the field type is a BYTE or not, if true then return 'BYTE'
+jcFieldDebugShow:Is12                     EQUATE(_Show) !PROCEDURE(*CSTRING Field),ASTRING,VIRTUAL                   !Confirm if the field type is a CSTRING or not, if true then return 'CSTRING'
+jcFieldDebugShow:Is13                     EQUATE(_Show) !PROCEDURE(*DATE Field),ASTRING,VIRTUAL                      !Confirm if the field type is a DATE or not, if true then return 'DATE'
+jcFieldDebugShow:Is14                     EQUATE(_Show) !PROCEDURE(*DECIMAL Field),ASTRING,VIRTUAL                   !Confirm if the field type is a DECIMAL or not, if true then return 'DECIMAL'
+jcFieldDebugShow:Is15                     EQUATE(_Show) !PROCEDURE(*GROUP Field),ASTRING,VIRTUAL                     !Confirm if the field type is a GROUP or not, if true then return 'GROUP'
+jcFieldDebugShow:Is16                     EQUATE(_Show) !PROCEDURE(*QUEUE Field),ASTRING,VIRTUAL                     !Confirm if the field type is a QUEUE or not, if true then return 'QUEUE'
+jcFieldDebugShow:Is17                     EQUATE(_Show) !PROCEDURE(*LONG Field),ASTRING,VIRTUAL                      !Confirm if the field type is a LONG or not, if true then return 'LONG'
+jcFieldDebugShow:Is18                     EQUATE(_Show) !PROCEDURE(*PDECIMAL Field),ASTRING,VIRTUAL                  !Confirm if the field type is a PDECIMAL or not, if true then return 'PDECIMAL'
+jcFieldDebugShow:Is19                     EQUATE(_Show) !PROCEDURE(*PSTRING Field),ASTRING,VIRTUAL                   !Confirm if the field type is a PSTRING or not, if true then return 'PSTRING'
+jcFieldDebugShow:Is20                     EQUATE(_Show) !PROCEDURE(*REAL Field),ASTRING,VIRTUAL                      !Confirm if the field type is a REAL or not, if true then return 'REAL'
+jcFieldDebugShow:Is21                     EQUATE(_Show) !PROCEDURE(*SHORT Field),ASTRING,VIRTUAL                     !Confirm if the field type is a SHORT or not, if true then return 'SHORT'
+jcFieldDebugShow:Is22                     EQUATE(_Show) !PROCEDURE(*SREAL Field),ASTRING,VIRTUAL                     !Confirm if the field type is a SREAL or not, if true then return 'SREAL'
+jcFieldDebugShow:Is23                     EQUATE(_Show) !PROCEDURE(*STRING Field),ASTRING,VIRTUAL                    !Confirm if the field type is a STRING or not, if true then return 'STRING'
+jcFieldDebugShow:Is24                     EQUATE(_Show) !PROCEDURE(*TIME Field),ASTRING,VIRTUAL                      !Confirm if the field type is a TIME or not, if true then return 'ASTRING'
+jcFieldDebugShow:Is25                     EQUATE(_Show) !PROCEDURE(*ULONG Field),ASTRING,VIRTUAL                     !Confirm if the field type is a ULONG or not, if true then return 'ULONG'
+jcFieldDebugShow:Is26                     EQUATE(_Show) !PROCEDURE(*USHORT Field),ASTRING,VIRTUAL                    !Confirm if the field type is a USHORT or not, if true then return 'USHORT'
+!jcFieldArray jcDebugShow:jcFieldArray
+jcFieldADebugShow:Is27                    EQUATE(_Show) !PROCEDURE(ANY[] Field),ASTRING,VIRTUAL                      !Confirm if the field type is a ANY or not, if true then return 'ANY'
+jcFieldADebugShow:Is28                    EQUATE(_Show) !PROCEDURE(*ASTRING[] Field),ASTRING,VIRTUAL                 !Confirm if the field type is a ASTRING or not, if true then return 'ASTRING'
+jcFieldADebugShow:Is29                    EQUATE(_Show) !PROCEDURE(*BFLOAT4[] Field),ASTRING,VIRTUAL                 !Confirm if the field type is a BFLOAT4 or not, if true then return 'BFLOAT4'
+jcFieldADebugShow:Is30                    EQUATE(_Show) !PROCEDURE(*BFLOAT8[] Field),ASTRING,VIRTUAL                 !Confirm if the field type is a BFLOAT8 or not, if true then return 'BFLOAT8'
+jcFieldADebugShow:Is31                    EQUATE(_Show) !PROCEDURE(*BYTE[] Field),ASTRING,VIRTUAL                    !Confirm if the field type is a BYTE or not, if true then return 'BYTE'
+jcFieldADebugShow:Is32                    EQUATE(_Show) !PROCEDURE(*CSTRING[] Field),ASTRING,VIRTUAL                 !Confirm if the field type is a CSTRING or not, if true then return 'CSTRING'
+jcFieldADebugShow:Is33                    EQUATE(_Show) !PROCEDURE(*DATE[] Field),ASTRING,VIRTUAL                    !Confirm if the field type is a DATE or not, if true then return 'DATE'
+jcFieldADebugShow:Is34                    EQUATE(_Show) !PROCEDURE(*DECIMAL[] Field),ASTRING,VIRTUAL                 !Confirm if the field type is a DECIMAL or not, if true then return 'DECIMAL'
+jcFieldADebugShow:Is35                    EQUATE(_Show) !PROCEDURE(*GROUP[] Field),ASTRING,VIRTUAL                   !Confirm if the field type is a GROUP or not, if true then return 'GROUP'
+jcFieldADebugShow:Is36                    EQUATE(_Show) !PROCEDURE(*LONG[] Field),ASTRING,VIRTUAL                    !Confirm if the field type is a LONG or not, if true then return 'LONG'
+jcFieldADebugShow:Is37                    EQUATE(_Show) !PROCEDURE(*PDECIMAL[] Field),ASTRING,VIRTUAL                !Confirm if the field type is a PDECIMAL or not, if true then return 'PDECIMAL'
+jcFieldADebugShow:Is38                    EQUATE(_Show) !PROCEDURE(*PSTRING[] Field),ASTRING,VIRTUAL                 !Confirm if the field type is a PSTRING or not, if true then return 'PSTRING'
+jcFieldADebugShow:Is39                    EQUATE(_Show) !PROCEDURE(*REAL[] Field),ASTRING,VIRTUAL                    !Confirm if the field type is a REAL or not, if true then return 'REAL'
+jcFieldADebugShow:Is40                    EQUATE(_Show) !PROCEDURE(*SHORT[] Field),ASTRING,VIRTUAL                   !Confirm if the field type is a SHORT or not, if true then return 'SHORT'
+jcFieldADebugShow:Is41                    EQUATE(_Show) !PROCEDURE(*SREAL[] Field),ASTRING,VIRTUAL                   !Confirm if the field type is a SREAL or not, if true then return 'SREAL'
+jcFieldADebugShow:Is42                    EQUATE(_Show) !PROCEDURE(*STRING[] Field),ASTRING,VIRTUAL                  !Confirm if the field type is a STRING or not, if true then return 'STRING'
+jcFieldADebugShow:Is43                    EQUATE(_Show) !PROCEDURE(*TIME[] Field),ASTRING,VIRTUAL                    !Confirm if the field type is a TIME or not, if true then return 'ASTRING'
+jcFieldADebugShow:Is44                    EQUATE(_Show) !PROCEDURE(*ULONG[] Field),ASTRING,VIRTUAL                   !Confirm if the field type is a ULONG or not, if true then return 'ULONG'
+jcFieldADebugShow:Is45                    EQUATE(_Show) !PROCEDURE(*USHORT[] Field),ASTRING,VIRTUAL                  !Confirm if the field type is a USHORT or not, if true then return 'USHORT'
+!jcFieldDataManager jcDebugShow:jcFieldDataManager
+jcFieldDDebugShow:Construct               EQUATE(_Show) !PROCEDURE
+jcFieldDDebugShow:Destruct                EQUATE(_Show) !PROCEDURE
+jcFieldDDebugShow:AddData                 EQUATE(_Show) !PROCEDURE(QFields Q),VIRTUAL                               !Add data to Queue
+jcFieldDDebugShow:Get                     EQUATE(_Show) !PROCEDURE (ASTRING FieldName,USHORT FieldID),?,PROC, VIRTUAL    !Get the Field value according to its variable type if the Field is a BYTE it will return the BYTE value of the Field. <br/> The first parameter is the field name of the data structure <br/> The Second parameter the field id within the Data structure assigned to jcFieldGroup
+jcFieldDDebugShow:SetCurrentFieldID       EQUATE(_Show) !PROCEDURE(USHORT FieldsID),VIRTUAL                         !Set the current field ID
+jcFieldDDebugShow:GetCurrentFieldID       EQUATE(_Show) !PROCEDURE(),USHORT,VIRTUAL                                 !Get the current field ID
+jcFieldDDebugShow:DeleteData              EQUATE(_Show) !PROCEDURE(QFields Q),VIRTUAL                               !Delete data to Queue
+jcFieldDDebugShow:UpdateData              EQUATE(_Show) !PROCEDURE(QFields Q),VIRTUAL                               !Update data to Queue
+jcFieldDDebugShow:GetHeaderColumns        EQUATE(_Hide) !PROCEDURE(),ASTRING,VIRTUAL                                !Build the header of the queue
+jcFieldDDebugShow:ShowFieldDataQueue      EQUATE(_Show) !PROCEDURE,VIRTUAL                                          !Show to DebugView the list of data
+!jcFieldManager jcDebugShow:jcFieldManager
+jcFieldMDebugShow:Construct               EQUATE(_Show) !PROCEDURE (),PROTECTED                                      !Construct the jcFieldmanager class instance
+jcFieldMDebugShow:Destruct                EQUATE(_Show) !PROCEDURE (),PROTECTED                                      !Destroy the jcFieldmanager class instance
+jcFieldMDebugShow:Init                    EQUATE(_Show) !PROCEDURE (<*GROUP G>,<*QUEUE Q>,<*ANY AnyNodeVal>),VIRTUAL                   !Init the jcFieldmanager class instance
+jcFieldMDebugShow:Kill                    EQUATE(_Show) !PROCEDURE (),VIRTUAL                                        !Kill the jcFieldmanager class instance
+jcFieldMDebugShow:MethodStart             EQUATE(_Show) !PROCEDURE (ASTRING MethodName,<ASTRING Prototype>,<BOOL Show>,<SHORT SpaceMargin>),PRIVATE  !Set Method it check for margin Set the MethodName and MethodStart
+jcFieldMDebugShow:MethodEnd               EQUATE(_Show) !PROCEDURE () ,PRIVATE                                       !Show to Debug View the end of the Method
+jcFieldMDebugShow:SetIndexField           EQUATE(_Hide) !PROCEDURE (BYTE IndexField),VIRTUAL                         !Set the index ordinal Field,<br/><br/> Default to the equate JC_FIELD_jcFieldManager_SetIndexField = 1, the Ordinal index field start with the first field in the Structure.<br/> the structure may be a QUEUE or GROUP.<br/> If the index field is set to 0 then the name of the GROUP structure is included.<br/> the IndexField is used in GetFields() methods
+jcFieldMDebugShow:GetIndexField           EQUATE(_Show) !PROCEDURE (),BYTE,VIRTUAL                                   !Get the index Field
+jcFieldMDebugShow:SetColumnIndex          EQUATE(_Show) !PROCEDURE (BOOL ColumnIndex),VIRTUAL                        !Do the index field from the StackQueue is shown in the first column or not if TRUE the INDEX Column. <br/> From the stackQueue is shown otherwise FALSE the INDEX Column is not shown we start from the first. <br/> Field of the structure or from the SELF.indexField defined.
+jcFieldMDebugShow:GetColumnIndex          EQUATE(_Show) !PROCEDURE (),BOOL,VIRTUAL                                   !Get the Column Index usage if true there will be an index column
+jcFieldMDebugShow:SetColumnIndexLength    EQUATE(_Hide) !PROCEDURE (BYTE ColumnIndexLength),VIRTUAL                  !The length of the Index field column taken from the stackQue that will appear if SELF.ColumnIndex = TRUE
+jcFieldMDebugShow:GetColumnIndexLength    EQUATE(_Show) !PROCEDURE (),BYTE,VIRTUAL                                   !Get the length of the Index field column taken from the stackQue that will appear if SELF.ColumnIndex = TRUE
+jcFieldMDebugShow:GetIndex                EQUATE(_Show) !PROCEDURE (*QUEUE Q,*? Field),USHORT,VIRTUAL                !Get the field index from a QUEUE , ex. if the Field is the the 3rd field within the QUEUE structure, GetIndex() returns 3
+jcFieldMDebugShow:GetIndex2               EQUATE(_Show) !PROCEDURE (*GROUP G,*? Field),USHORT,VIRTUAL                 !Get the field index from a GROUP, ex. if the Field is the the 3rd field within the GROUP structure, GetIndex() returns 3
+jcFieldMDebugShow:GetName                 EQUATE(_Hide) !PROCEDURE (*QUEUE Q,USHORT indexField),ASTRING,VIRTUAL      !Get the indexField position field name of a QUEUE, ex. if the indexField is 2 then second FieldName in UPPER case is given within the QUEUE structure, GetName() returns 'FIELDNAME' according to the indexField position
+jcFieldMDebugShow:GetName2                EQUATE(_Hide) !PROCEDURE (*GROUP G,USHORT indexField),ASTRING,VIRTUAL      !Get the indexField position field name of a GROUP , ex. if the indexField is 2 then second FieldName in UPPER case is given within the GROUP structure, GetName() returns 'FIELDNAME' according to the indexField position
+jcFieldMDebugShow:GetData                 EQUATE(_Hide) !PROCEDURE (*QUEUE Q,USHORT indexField),ASTRING,VIRTUAL      !Get the indexField position field data of a QUEUE , ex. if the indexField is 2 then second FieldData is given from the QUEUE structure, GetData() returns 'FIELDDATA' according to the indexField position
+jcFieldMDebugShow:GetData2                EQUATE(_Hide) !PROCEDURE (*GROUP G,USHORT indexField),ASTRING,VIRTUAL      !Get the indexField position field data of a GROUP , ex. if the indexField is 2 then second FieldData is given from the GROUP structure, GetData() returns 'FIELDDATA' according to the indexField position
+jcFieldMDebugShow:GetFields               EQUATE(_Show) !PROCEDURE (*GROUP G,<USHORT StartPosition>,<BYTE FieldsFormat>),ASTRING,VIRTUAL   !Get the fields Name of a structure GROUP, GROUP FIELDS, if the StartPosition is assigned then the GetFields will start from the assigned field sequence. <br/>  The FieldsFormat parameter accept a value between 1 and 4.<br/> FieldsFormat 1 = 'FieldName',<br/> FieldsFormat 2 = 'FieldName = FieldData',<br/> FieldsFormat 3 = 'NameOfTheStructure.FieldName = Field
+jcFieldMDebugShow:GetFields2              EQUATE(_Show) !PROCEDURE (*QUEUE Q,<USHORT StartPosition>,<BYTE FieldsFormat>),ASTRING,VIRTUAL   !Get the fields Name of a structure QUEUE, RECORD QUEUE FIELDS, if the StartPosition is assigned then the GetFields will start from the assigned field sequence. <br/>  The FieldsFormat parameter accept a value between 1 and 4.<br/> FieldsFormat 1 = 'FieldName',<br/> FieldsFormat 2 = 'FieldName = FieldData',<br/> FieldsFormat 3 = 'NameOfTheStructure.FieldName
+jcFieldMDebugShow:SetFieldsFormat         EQUATE(_Hide) !PROCEDURE (<BYTE FieldsFormat>),VIRTUAL                     !Set the fields return format of a structure CLASS, QUEUE or GROUP, <br/>  The FieldsFormat parameter accept a value between 1 and 4.<br/> FieldsFormat 1 = 'FieldName',<br/> FieldsFormat 2 = 'FieldName = FieldData',<br/> FieldsFormat 3 = 'NameOfTheStructure.FieldName = FieldData',<br/> FieldsFormat 4 = 'FieldData'
+jcFieldMDebugShow:GetFieldsFormat         EQUATE(_Show) !PROCEDURE (),BYTE,VIRTUAL                                   !Get the fields format
+jcFieldMDebugShow:SetFieldsFormatLimit    EQUATE(_Hide) !PROCEDURE (<BYTE FieldsFormatLimit>),VIRTUAL                !Set the fields FormatLimit presently we have a limit of 4 set with the constant equate JC_FIELD_jcFieldManager_SetFormatFields
+jcFieldMDebugShow:GetFieldsFormatLimit    EQUATE(_Hide) !PROCEDURE (),BYTE,VIRTUAL                                   !Get the fields FormatLimit
+jcFieldMDebugShow:GetARecordFromQueue     EQUATE(_Show) !PROCEDURE (LONG indexQPosition,USHORT indexField),ANY       !Get the data from the indexField position of a single record of a queue
+jcFieldMDebugShow:CalculateColumnsSet     EQUATE(_Show) !PROCEDURE (*stackQueue Q,*GROUP TargetGroup,*USHORT[] ColumnsLength)   !CalculateColumnsSet compute the length of each columns according to the data and/or the TargetGroup field length, the largest result is taken
+jcFieldMDebugShow:CalculateColumnsSet2    EQUATE(_Hide) !PROCEDURE (*stackQueue Q,*GROUP TargetGroup)                !CalculateColumnsSet compute the length of each columns according to the data and/or the TargetGroup field length, the largest result is taken
+jcFieldMDebugShow:CalculateColumnsSet3    EQUATE(_Hide) !PROCEDURE (*QUEUE Q,*GROUP TargetGroup)                !CalculateColumnsSet compute the length of each columns according to the data and/or the TargetGroup field length, the largest result is taken
+jcFieldMDebugShow:CalculateColumnsSet4    EQUATE(_Show) !PROCEDURE (*QUEUE Q,*USHORT[] ColumnsLength)                !Calculate Columns Sets of a define queue
+jcFieldMDebugShow:CalculateColumnsSet5    EQUATE(_Show) !PROCEDURE (*QUEUE Q)                                        !Calculate Columns Sets of a define queue
+jcFieldMDebugShow:CalculateColumnsRow     EQUATE(_Show) !PROCEDURE (*QUEUE Q,*USHORT[] ColumnsLength)                !Calculate for the largest column of a queue, ColumnsLength dimensional array parameter used by address
+jcFieldMDebugShow:CalculateColumnsRow2    EQUATE(_Show) !PROCEDURE (*QUEUE Q)                                        !Calculate for the largest column of a queue, the internal jcFieldManager class ColumnsLength dimensional array property is used
+jcFieldMDebugShow:CalculateColumnsRow3    EQUATE(_Show) !PROCEDURE (*QUEUE Q,*GROUP G,*USHORT[] ColumnsLength)       !Calculate for the largest column of a group, ColumnsLength dimensional array parameter used by address
+jcFieldMDebugShow:CalculateColumnsRow4    EQUATE(_Hide) !PROCEDURE (*QUEUE Q,*GROUP G)                                               !Calculate for the largest column of a queue, the internal jcFieldManager class ColumnsLength dimensional array property is used
+jcFieldMDebugShow:SetColumnsSize          EQUATE(_Show) !PROCEDURE (? Columns),VIRTUAL                               !Set the largest length for all columns
+jcFieldMDebugShow:GetColumnsSize          EQUATE(_Hide) !PROCEDURE (),USHORT,VIRTUAL                                 !Get the largest length for all columns
+jcFieldMDebugShow:GetNumberOfColumns      EQUATE(_Show) !PROCEDURE (*USHORT[] Columns),ULONG                         !Get the number columns used
+jcFieldMDebugShow:GetNumberOfColumns2     EQUATE(_Hide) !PROCEDURE (),ULONG                         !Get the number columns used
+jcFieldMDebugShow:GetHeaderColumns        EQUATE(_Show) !PROCEDURE (*QUEUE Q,*USHORT[] ColumnsLength),ASTRING,VIRTUAL !Get Header columns from a QUEUE structure According to the size of the data in the queue
+jcFieldMDebugShow:GetHeaderColumns2       EQUATE(_Show) !PROCEDURE (*QUEUE Q),ASTRING,VIRTUAL                        !Get Header columns from a QUEUE structure According to the calculated columns set of the data in the queue
+jcFieldMDebugShow:GetHeaderColumns3       EQUATE(_Show) !PROCEDURE (*GROUP G,*USHORT[] ColumnsLength),ASTRING,VIRTUAL !Get Header columns from a GROUP structure According to the calculcate columns set  of the data in the group
+jcFieldMDebugShow:GetHeaderColumns4       EQUATE(_Hide) !PROCEDURE (*GROUP G),ASTRING,VIRTUAL                        !Get Header columns from a GROUP structure According to the calculated columns set of the data in the group
+jcFieldMDebugShow:ShowColumns             EQUATE(_Show) !PROCEDURE (stackQueue Q,<*GROUP G>,*USHORT[] ColumnsLength) !Show the columns of the group from the Saved QUEUE where the group may be referenced in the Init() method or pass as a parameter. If omitted then the refernce Group is used.
+jcFieldMDebugShow:ShowColumns2            EQUATE(_Show) !PROCEDURE (stackQueue Q,<*GROUP G>)                         !Show the columns of the group from the Saved QUEUE where the group may be referenced in the Init() method or pass as a parameter. If omitted then the refernce Group is used.
+jcFieldMDebugShow:ShowColumns3            EQUATE(_Hide) !PROCEDURE (*QUEUE Q)                                        !Show the columns of the QUEUE format to fit the entire array of data.
+jcFieldMDebugShow:ShowColumns4            EQUATE(_Show) !PROCEDURE (USHORT indexField,*USHORT[] ColumnsLength)       !Show the columns of the group from the Saved QUEUE where the group is referenced in the Init() method. The external dimensional ColumnsLength dimensional array is used.
+jcFieldMDebugShow:ShowColumns5            EQUATE(_Show) !PROCEDURE (USHORT indexField)                               !Show the columns of the group from the Saved QUEUE where the group is referenced in the Init() method
+jcFieldMDebugShow:ShowColumns6            EQUATE(_Show) !PROCEDURE (*USHORT[] ColumnsLength)                         !Show the columns of a QUEUE referenced in Init() method
+jcFieldMDebugShow:ShowColumns7            EQUATE(_Show) !PROCEDURE ()                                                !Show the columns of a QUEUE referenced in Init() method
+jcFieldMDebugShow:GetStringFormatLength   EQUATE(_Hide) !PROCEDURE (USHORT StringLength),ASTRING                     !Get the length of the formatted strings if parameter(6) it returns '@s6'
+jcFieldMDebugShow:EmbedShow               EQUATE(_Show) !PROCEDURE (ASTRING EmbedShow)                               !Show the EmbedShow
+jcFieldMDebugShow:ShowQueue               EQUATE(_Show) !PROCEDURE (*QUEUE Q),VIRTUAL                                !Show the contenant of the Queue to the screen
+jcFieldMDebugShow:ShowQueue2              EQUATE(_Show) !PROCEDURE (stackQueue Q,<*GROUP G>),VIRTUAL                 !Show the contenant of the Queue to the screen
+jcFieldMDebugShow:ShowQueue3              EQUATE(_Show) !PROCEDURE (*QUEUE Q,*GROUP G),VIRTUAL                     !Show the contenant of the Queue to the screen
+jcFieldMDebugShow:AddDataLog              EQUATE(_Show) !PROCEDURE (*QUEUE Q),VIRTUAL                                !Add Data from the Queue to the log file
+jcFieldMDebugShow:PrintLog                EQUATE(_Show) !PROCEDURE (),VIRTUAL                                        !Print the current logFileNumberUsed log file to the printer
+jcFieldMDebugShow:PrintQ                  EQUATE(_Show) !PROCEDURE (*QUEUE Q),VIRTUAL                                !Print the Queue content
+_jcFieldShowEquates_
