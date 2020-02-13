@@ -2,7 +2,7 @@
 Trigger management for embed point WhenTask knowing WhosCalling, HasToDo and HasDone.
 WhenTask project is a set of procedures to manage triggers for embeds points in an application. Knowing who’s calling, on tasks that HasToDo some actions and when tasks Has Done what to do. This permits to know who, what, when and why a task has to perform anywhere within an application according selected trigger; WhosCalling(Where), HasToDo(Where), HasDone(Where).
 
-Excerpt from jcWhenTask.equ declarations files that describes in part the WhenTask concept.
+#Excerpt from jcWhenTask.equ declarations files that describes in part the WhenTask concept.
 !Used within QWhenTask assign to WhenTask BYTE field the main field of the queue
 WhenTaskDefinition    ITEMIZE(1),PRE(WTDef) !WhenTaskDefinition holds all the different aspect of the WhenTask concept from the CodeArea to what an area will do.
 CodeAreaSetDefinition   EQUATE !CodeAreaSet identifier definition that holds a code value set representationfrom WhenTaskSet   ITEMIZE,PRE(CAS) found in jcWhenTaskSet.equ file.
