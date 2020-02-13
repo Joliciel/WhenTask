@@ -1,0 +1,66 @@
+!jcLog!This list of equate are the default status of each jcLogManager methods that are in jcLog.clw
+!They are used as a third parameter show for each MethodStart()
+! ex. SELF.Debug.MethodStart('Init',,jcLogDebugShow:Init)
+
+
+         INCLUDE('jcLogShowOptions.inc'),ONCE
+         OMIT('_jcLogShowEquates_',_SelectjcLogEquatesShow_)
+
+
+jcLogDebugShow:jcLogManager               EQUATE(_Show)
+!jcLogManager jcDebugShow:jcLogManager
+jcLogDebugShow:ViewLogFile                EQUATE(_Show) !PROCEDURE(),VIRTUAL                                         !View the log file
+jcLogDebugShow:Construct                  EQUATE(_Show) !PROCEDURE                                                    !Begins the jcDebug scope instance
+jcLogDebugShow:Init                       EQUATE(_Show) !PROCEDURE(<STRING LogFileName>,<BOOL SetLog>,<BYTE LogFormat>), VIRTUAL  !Initialized the jcLogManager to the optional LogFileName parameter and optional SetLog Set(TRUE) log to a file and Set(FALSE) do not log to a file.<br/> The optional Log Format parameter  set the FileName format use by SetLogFileName second parameter LogFormat,<br/> LogFormat 1 = FileName only <br/> LogFormat 2 = ApplicationName-FileName <br/> LogFormat 3 = Applicati
+jcLogDebugShow:Init2                      EQUATE(_Show) !PROCEDURE(*FILE File,STRING LogFileName,<BOOL SetLog>,<BYTE LogFormat>), VIRTUAL  !Initialized the jcLogManager to the optional LogFileName parameter and optional SetLog Set(TRUE) log to a file and Set(FALSE) do not log to a file.<br/> The optional Log Format parameter  set the FileName format use by SetLogFileName second parameter LogFormat,<br/> LogFormat 1 = FileName only <br/> LogFormat 2 = ApplicationName-FileName <br/> LogFormat 3 =
+jcLogDebugShow:PrepareClassName           EQUATE(_Show) !PROCEDURE(*jcLogManager jcLogClass,<ASTRING DeclaredClassName>),VIRTUAL
+jcLogDebugShow:Set                        EQUATE(_Show) !PROCEDURE(BOOL Log), VIRTUAL                                 !Set Log TRUE Log is active FALSE log is inactive
+jcLogDebugShow:Get                        EQUATE(_Show) !PROCEDURE(),BOOL,VIRTUAL                                     !Get Log status TRUE Log is active FALSE log is inactive
+jcLogDebugShow:SetFile                    EQUATE(_Show) !PROCEDURE(<ASTRING LogFileName>,<BYTE LogFormat>),VIRTUAL    !Set the physical log file. First optional parameter is the name of the log file. <br/> Log Format parameter  set the format of the FileName use by SetLogFileName second parameter LogFormat,<br/> LogFormat 1 = FileName only <br/> LogFormat 2 = ApplicationName-FileName <br/> LogFormat 3 = ApplicationName-Date-Time-(FileName)
+jcLogDebugShow:SetFileServer              EQUATE(_Show) !PROCEDURE(BYTE Server),PRIVATE
+jcLogDebugShow:OpenFile                   EQUATE(_Show) !PROCEDURE(*FILE File),VIRTUAL
+jcLogDebugShow:CloseFile                  EQUATE(_Show) !PROCEDURE(*FILE File),VIRTUAL
+jcLogDebugShow:Fetch                      EQUATE(_Show) !PROCEDURE(),VIRTUAL                    !Fetch the current LogFile
+jcLogDebugShow:Next                       EQUATE(_Show) !PROCEDURE(),VIRTUAL                    !Read the current LogFile
+jcLogDebugShow:GetRecord                  EQUATE(_Show) !PROCEDURE(),STRING,VIRTUAL             !Get the current record line of the current logFile
+jcLogDebugShow:EoF                        EQUATE(_Show) !PROCEDURE(),BOOL,VIRTUAL               !Verify the EOF the current logFile
+jcLogDebugShow:GetFileLabel               EQUATE(_Show) !PROCEDURE(),ASTRING,VIRTUAL                                  !Get the File Name Label
+jcLogDebugShow:SetPath                    EQUATE(_Show) !PROCEDURE(ASTRING Path),VIRTUAL                              !Set the log path, if none the default path is the equate JC_LOG_jcLogManager_SetExtension, the parameter of the equate is 'Log'.
+jcLogDebugShow:GetPath                    EQUATE(_Show) !PROCEDURE(),ASTRING,VIRTUAL                                  !Get the log path used by SetLogFileName. Prior to call GetPath() a call to SetPath(Path) is necessary. Usually in the Init method or before calling SetLogFileName()
+jcLogDebugShow:SetExtension               EQUATE(_Show) !PROCEDURE(<ASTRING LogFileName>),VIRTUAL                     !Set the file extension. <br/> if no parameter it default to JC_LOG_jcLogManager_SetExtension EQUATE defines earlier in the jcLog.inc source file, <br/>  the dot behind is used if not passed. Format of SetExtesion(), is <br/> SELF.SetExtension(txt) = .txt, <br/> SELF.SetExtension(.doc) = .doc
+jcLogDebugShow:GetExtension               EQUATE(_Show) !PROCEDURE(),ASTRING,VIRTUAL                                  !Get the file extension
+jcLogDebugShow:SetLogFormatLimit          EQUATE(_Show) !PROCEDURE(BYTE LogFormatLimit),VIRTUAL                       !Set log Format limit if 2 then the range is between 1 and 2 otherewise the log format is out of range
+jcLogDebugShow:GetLogFormatLimit          EQUATE(_Show) !PROCEDURE(),BYTE,VIRTUAL                                     !Get Log Format Limit
+jcLogDebugShow:SetLogFormat               EQUATE(_Show) !PROCEDURE(BYTE LogFormat),VIRTUAL                            !Set log Format use by SetLogFileName second parameter LogFormat,<br/> LogFormat 1 = FileName only <br/> LogFormat 2 = ApplicationName-FileName <br/> LogFormat 3 = ApplicationName-Date-Time-(FileName)
+jcLogDebugShow:GetLogFormat               EQUATE(_Show) !PROCEDURE(),BYTE,VIRTUAL                                     !Get Log Format use by SetLogFileName second parameter LogFormat,<br/> LogFormat 1 = FileName only <br/> LogFormat 2 = ApplicationName-FileName <br/> LogFormat 3 = ApplicationName-Date-Time-(FileName)
+jcLogDebugShow:SetLogFileName             EQUATE(_Show) !PROCEDURE(<ASTRING LogFileName>,<BYTE LogFormat>),VIRTUAL    !Set the LogFileName format
+jcLogDebugShow:GetLogFileName             EQUATE(_Show) !PROCEDURE (),ASTRING,VIRTUAL                                 !Get the LogFilename
+jcLogDebugShow:ReadToQueue                EQUATE(_Show) !PROCEDURE(*QUEUE Q,*? RecordRow,<ASTRING Filter>),VIRTUAL !Sending the log file to a Queue
+jcLogDebugShow:ReadQueueToLogFile         EQUATE(_Show) !PROCEDURE(*QUEUE Q,*? RecordRow),VIRTUAL !Sending The Queue to Log file
+jcLogDebugShow:SetDate                    EQUATE(_Show) !PROCEDURE(<LONG DatePar>,<ASTRING DateFormat>),VIRTUAL       !Prepare Date and Format it
+jcLogDebugShow:GetDate                    EQUATE(_Show) !PROCEDURE(<LONG DatePar>,<ASTRING DateFormat>),ASTRING,VIRTUAL !Get the formated date add the same parameters as SetDate. The reason the function will have the same possibility to format the date
+jcLogDebugShow:SetTime                    EQUATE(_Show) !PROCEDURE(<LONG TimePar>,<ASTRING TimeFormat>),VIRTUAL       !Prepare Time and Format it. The first parameter is the time and the second is the format.<br/>Format the Time. Initialized in Init method, used by SetLine(),<br/>default equate is JC_LOG_jcLogManager_SetTimeFormat<br/><br/>Set with SetTimeFormat('@T?') or SetTimeFormat(?) where '?' is the picture token format number,<br/>TimeFormat = JC_LOG_jcLogManager_SetTimeFormat EQUATE().<b
+jcLogDebugShow:GetTime                    EQUATE(_Show) !PROCEDURE(<LONG TimePar>,<ASTRING TimeFormat>),ASTRING,VIRTUAL !Get the formated Time add the same parameters as SetTime. The reason the function will have the same possibility to format the time
+jcLogDebugShow:SetSeparator               EQUATE(_Show) !PROCEDURE(<ASTRING Separator>),VIRTUAL                       !Set the separator
+jcLogDebugShow:GetSeparator               EQUATE(_Show) !PROCEDURE(),ASTRING,VIRTUAL                                  !Get the separator
+jcLogDebugShow:VerifyDateFormat           EQUATE(_Show) !PROCEDURE(<ASTRING DateFormat>),BOOL,PRIVATE                 !Verify if the Date Format is OK
+jcLogDebugShow:PrepareDateFormat          EQUATE(_Show) !PROCEDURE(),PRIVATE                                          !PrepareDateFormat set the list of valid date picture token format.<br/>SetDateFormat method needs the list to validate the picture format used.<br/> To validate the Date picture token format is as follows.<br/> IF SELF.Get(jcLog::DateFormat,'@D?') where '?' is a valid picture token number between 1 and 18.
+jcLogDebugShow:SetDateFormat              EQUATE(_Show) !PROCEDURE(<ASTRING DateFormat>),VIRTUAL                      !Format the Date. Initialized in Init method, used by SetLine(),<br/>default equate is JC_LOG_jcLogManager_SetDateFormat<br/><br/>Set with SetDateFormat('@d?') or SetDateFormat(?) where '?' is the picture token format number,<br/>DateFormat = JC_LOG_jcLogManager_SetDateFormat EQUATE().<br/><br/>Picture Format               Result<br/>@D1      mm/dd/yy             10/31/59<br/>@D1
+jcLogDebugShow:GetDateFormat              EQUATE(_Show) !PROCEDURE(),ASTRING,VIRTUAL                                  !Get the date format
+jcLogDebugShow:VerifyTimeFormat           EQUATE(_Show) !PROCEDURE(<ASTRING TimeFormat>),BOOL,PRIVATE                 !Verify if the Time Format is OK
+jcLogDebugShow:PrepareTimeFormat          EQUATE(_Show) !PROCEDURE(),PRIVATE                                          !PrepareTimeFormat set the list of valid date picture token format.<br/>SetTimeFormat method needs the list to validate the picture format used.<br/> To validate the Date picture token format is as follows.<br/> IF SELF.Get(jcLog::TimeFormat,'@T?') where '?' is a valid picture token number between 1 and 8.
+jcLogDebugShow:SetTimeFormat              EQUATE(_Show) !PROCEDURE(<ASTRING TimeFormat>),VIRTUAL                      !Format the Time. Initialized in Init method, used by SetLine(),<br/>default equate is JC_LOG_jcLogManager_SetTimeFormat<br/><br/>Set with SetTimeFormat('@T?') or SetTimeFormat(?) where '?' is the picture token format number,<br/>TimeFormat = JC_LOG_jcLogManager_SetTimeFormat EQUATE().<br/><br/>Picture   Format       Result<br/>@T1       hh:mm        17:30<br/>@T2       hhmm
+jcLogDebugShow:GetTimeFormat              EQUATE(_Show) !PROCEDURE(),ASTRING,VIRTUAL                                  !Get the time format
+jcLogDebugShow:SetLineNoFormat            EQUATE(_Show) !PROCEDURE(<ASTRING LineNoFormat>),VIRTUAL                    !Format the LineNo. Initialized in Init method, used by SetLine(), default equate is JC_LOG_jcLogManager_SetLineNoFormat
+jcLogDebugShow:GetLineNoFormat            EQUATE(_Show) !PROCEDURE(),ASTRING,VIRTUAL                                  !Get the LineNo format
+jcLogDebugShow:SetLineFormatLimit         EQUATE(_Show) !PROCEDURE(BYTE LineFormatLimit),VIRTUAL                      !Use by SetLine SetLineFormatLimit assign the number of lineFormat if 3 the range limit is between 1 and 3, this will ensure the number of Line format used, it is setup in the Init() method and reassign in the SetLine method
+jcLogDebugShow:GetLineFormatLimit         EQUATE(_Show) !PROCEDURE(),BYTE,VIRTUAL                                     !Get Line Format
+jcLogDebugShow:SetLineFormat              EQUATE(_Show) !PROCEDURE(BYTE LineFormat),VIRTUAL                           !Use by SetLine SetLineFormat formats the line of the record according to one of the three defines format,<br/> Format 1 = Line from Debug, <br/> Format 2 = LineNo and Line <br/> Format 3 = LineNo Time and Line
+jcLogDebugShow:GetLineFormat              EQUATE(_Show) !PROCEDURE(),BYTE,VIRTUAL                                     !Get Line Format
+jcLogDebugShow:SetLineNo                  EQUATE(_Show) !PROCEDURE(),VIRTUAL                                          !Set Line No it will increment LineNo + 1
+jcLogDebugShow:GetLineNo                  EQUATE(_Show) !PROCEDURE(),ULONG,VIRTUAL                                    !Get Line No
+jcLogDebugShow:SetLine                    EQUATE(_Show) !PROCEDURE(ASTRING Line),ASTRING,VIRTUAL                       !SetLine ,<br/> Format 1 = Line from Debug, <br/> Format 2 = LineNo and Line <br/> Format 3 = LineNo Time and Line
+jcLogDebugShow:AddLine                    EQUATE(_Show) !PROCEDURE(ASTRING Line),VIRTUAL                               !Add line to the log file
+jcLogDebugShow:Destruct                   EQUATE(_Show) !PROCEDURE                                                    !End the jcDebug scope instance
+jcLogDebugShow:Kill                       EQUATE(_Show) !PROCEDURE () ,VIRTUAL                                        !Removing the Class scope instance from memory
+_jcLogShowEquates_

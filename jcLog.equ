@@ -1,0 +1,52 @@
+INCLUDE('jcLogShowOptions.inc'),ONCE
+
+
+
+jcLog::jcLogManager                     EQUATE('jcLogManager')
+jcLog::jcLogFile                        EQUATE('jcLogFile')
+jcLog::jcLogFile2                       EQUATE('jcLogFile2')
+jcLog::jcLogFile3                       EQUATE('jcLogFile3')
+jcLog::jcLogFile4                       EQUATE('jcLogFile4')
+jcLog::jcLogFile5                       EQUATE('jcLogFile5')
+jcLog::Hyphen                           EQUATE('-')
+jcLog::Coma                             EQUATE(',')
+jcLog::Colon                            EQUATE(':')
+jcLog::Dot                              EQUATE('.')
+jcLog::Underscore                       EQUATE('_')
+jcLog::Arobas                           EQUATE('@')
+jcLog::Slash                            EQUATE('/')
+jcLog::BackSlash                        EQUATE('\')
+jcLog::OpenParenthesis                  EQUATE('(')
+jcLog::CloseParenthesis                 EQUATE(')')
+jcLog::DefaultLogFileName               EQUATE('Debug.log') !Default log file name
+jcLog::DateFormat                       EQUATE('Date Format')
+jcLog::TimeFormat                       EQUATE('Time Format')
+jcLog::Separator                        EQUATE('Separator')
+jcLog::DateFormatPrefix                 EQUATE(jcLog::Arobas & 'd')
+jcLog::TimeFormatPrefix                 EQUATE(jcLog::Arobas & 'T')
+
+JC_LOG_jcLogManager_SetAssertState      EQUATE(99)      !Assert level 99
+JC_LOG_jcLogManager_Set                 EQUATE(TRUE)    !Triger Log if set to FALSE no log file is created or append to. It default to true therefore the log file is created and updated.
+JC_LOG_jcLogManager_SetPath             EQUATE('Log')   !Path of the log file sub folder Log
+JC_LOG_jcLogManager_SetDebugState       EQUATE(FALSE)   !Activate or not the DebugManager within the jcLogManager. a value of TRUE activate the jcDebugManager and FALSE not
+JC_LOG_jcLogManager_SetLogFormatLimit   EQUATE(4)       !Used as a parameter of SetLogFormatLimit() in the init method
+JC_LOG_jcLogManager_SetLineFormatLimit  EQUATE(3)       !Used as a parameter of SetLineFormatLimit() in the init method 
+JC_LOG_jcLogManager_SetLogFormat        EQUATE(3)       !Used as a parameter of SetLogFormat() in the init method. Set log Format use by SetLogFileName second parameter LogFormat,<br/> LogFormat 1 = FileName only <br/> LogFormat 2 = ApplicationName-FileName <br/> LogFormat 3 = ApplicationName-Date-Time-(FileName) <br/> LogFormat 4 = ClassName-Date-Time-(FileName)
+JC_LOG_jcLogManager_SetLineFormat       EQUATE(1)       !Used as a parameter of SetLineFormat() in the init method, SetLine ,<br/> Format 1 = Line from Debug, <br/> Format 2 = LineNo and Line <br/> Format 3 = LineNo Time and Line
+JC_LOG_jcLogManager_SetExtension        EQUATE('log')   !Used a default parameter of SetExtension(JC_LOG_jcLogManager_SetExtension)
+JC_LOG_jcLogManager_SetDateFormat       EQUATE('@d10-') !Used a default parameter of SetDateFormat(JC_LOG_jcLogManager_SetDateFormat)
+JC_LOG_jcLogManager_SetTimeFormat       EQUATE('@T1')  !Used a default parameter of SetTimeFormat(JC_LOG_jcLogManager_SetTimeFormat)
+JC_LOG_jcLogManager_SetLine_SetTimeFormat EQUATE('@T4.') !Used a default parameter of SetTimeFormat(JC_LOG_jcLogManager_SetLine_SetTimeFormat)
+JC_LOG_jcLogManager_SetLineNoFormat     EQUATE('@n_10') !Used a default parameter of SetLineNoFormat(JC_LOG_jcLogManager_SetLineNoFormat)
+
+     OMIT('_jcLogShowEquates_',_SelectjcLogEquatesShow_)
+jcLogDebugShow:Init_SetupLog_Routine     EQUATE(_Show)
+jcLogDebugShow:Init_SetFileSetup_Routine EQUATE(_Show)
+_jcLogShowEquates_
+
+     OMIT('_jcLogShowVariables_',_SelectjcLogVariablesShow_)
+jcLogDebugShow:Init_SetupLog_Routine     BOOL
+jcLogDebugShow:Init_SetFileSetup_Routine BOOL
+_jcLogShowVariables_
+
+
