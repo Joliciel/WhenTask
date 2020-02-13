@@ -1,0 +1,33 @@
+!WhenTask Constant EQUATE ITMIZE Set of CAS Code Area Set
+WhenTaskSet       ITEMIZE,PRE(CAS)
+CurrentCodeAreaSet  EQUATE
+CurrentCodeArea     EQUATE
+jcWhenTask          EQUATE
+jcBase              EQUATE
+jcBaseDev           EQUATE
+jcDMLDev            EQUATE
+jcFieldDev          EQUATE
+jcLogDev            EQUATE
+jcErrorDev          EQUATE
+jcDebugDev          EQUATE
+jcStackDev          EQUATE
+jcDevDoc            EQUATE
+AppDML              EQUATE
+jcDML               EQUATE
+jcApp               EQUATE
+jcDict              EQUATE
+jcDictA             EQUATE
+jcRéf               EQUATE
+jcRéfA              EQUATE
+jcDonnée            EQUATE
+jcDonnéeA           EQUATE
+jcText              EQUATE
+jcTextA             EQUATE
+jcTable             EQUATE
+jcTableA            EQUATE
+jcAccès             EQUATE
+jcDebug             EQUATE
+jcINI               EQUATE
+WhnTsk              EQUATE
+                  END
+

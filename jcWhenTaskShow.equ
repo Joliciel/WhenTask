@@ -1,0 +1,59 @@
+!jcWhenTask!This list of equate are the default status of each jcWhenTaskClass methods that are in jcWhenTask.clw
+!They are used as a third parameter show for each MethodStart()
+! ex. SELF.Debug.MethodStart('Init',,jcWhenTaskDebugShow:Init)
+
+
+         INCLUDE('jcWhenTaskShowOptions.inc'),ONCE
+         OMIT('_jcWhenTaskShowEquates_',_SelectjcWhenTaskEquatesShow_)
+
+
+jcWTDebugShow:jcWhenTaskClass             EQUATE(_Show)
+!jcWhenTaskClass jcDebugShow:jcWhenTaskClass
+jcWTDebugShow:Construct                   EQUATE(_Show) !PROCEDURE
+jcWTDebugShow:Destruct                    EQUATE(_Show) !PROCEDURE
+jcWTDebugShow:Init                        EQUATE(_Show) !PROCEDURE(<ASTRING VirtualClassName>) !The VirtualClassName used by jcDebugManager instance in jcWhenClass source file
+jcWTDebugShow:Kill                        EQUATE(_Show) !PROCEDURE()                           !The jcWhenTaskClass Kill procedure
+jcWTDebugShow:SetWhenTask                 EQUATE(_Show) !PROCEDURE(BYTE pWhenTask,ULONG pCodeAreaSet,ULONG pCodeArea,BOOL pCodeAreaState),PRIVATE !Set a single WhenTaskDefinition identifier Code Area Set Area state.
+jcWTDebugShow:GetWhenTask                 EQUATE(_Show) !PROCEDURE(BYTE pWhenTask,ULONG pCodeAreaSet,<ULONG pCodeArea>),ULONG,PRIVATE !Get a single WhenTaskDefinition identifier Code Area Set Area if it exist or not
+jcWTDebugShow:GetWhenTaskName             EQUATE(_Show) !PROCEDURE(*BYTE WhenTask),ASTRING                       !Get the name of one the five WhenTask.<br/>WhenTask 1 is Code Area Set definition<br/>WhenTask 2 is Whos Calling<br/>WhenTask 3 is Has To Do<br/>WhenTask 4 is Trigger Off Has To Do<br/>WhenTask 5 is Has Done
+jcWTDebugShow:FetchWhenTaskNature         EQUATE(_Show) !PROCEDURE(ULONG pWhosCalling,BYTE pWhenTask,ULONG pCodeAreaSet,<ULONG pCodeArea>,<BOOL pState>),ULONG,PROC,VIRTUAL  !Fetch for the Nature of WhenTask if its a Set or an Area Nature that we are looking for.<br/>pWhosCalling must be one of the WhenTask procedure equate found in jcWhenTaskWhenTask.equ source file.<br/>Presently it uses WT:SetWhenTask or WT:GetWhenTask as a parameter.<br/>Meaning it will perform a task demand according on the
+jcWTDebugShow:SetState                    EQUATE(_Show) !PROCEDURE(BOOL pCodeAreaState,BYTE pWhenTask,<ULONG pCodeAreaSet>,<ULONG pCodeArea>),VIRTUAL   !Set a single WhenTaskDefinition identifier Code Area Set Area state.<br/>The third or forth parameters are optionals, if either one are not passed, CurrentCodeAreaSet or CurrentCodeArea or both are used.
+jcWTDebugShow:GetState                    EQUATE(_Show) !PROCEDURE(BYTE pWhenTask,<ULONG pCodeAreaSet>,<ULONG pCodeArea>),BYTE,VIRTUAL   !Get a single WhenTaskDefinition identifier Code Area Set Area state.<br/>If the record is not found or not defined the following equate will be returned "WTDef:AreaNotDefined".<br/>The second and third parameters are optionals, if either one are not passed, CurrentCodeAreaSet or CurrentCodeArea or both are used.
+jcWTDebugShow:DeleteWhenTask              EQUATE(_Show) !PROCEDURE(BYTE pWhentTask),VIRTUAL !Delete a single WhenTaskDefinition identifier from the QWhenTask queue
+jcWTDebugShow:ClearWhenTask               EQUATE(_Show) !PROCEDURE(BYTE pWhentTask),VIRTUAL  !Clear to 0 a single WhenTaskDefinition identifier from the QWhenTask queue
+jcWTDebugShow:Setsan                      EQUATE(_Show) !PROCEDURE(ULONG pSetID,ULONG pAreaID,ASTRING pName)     !Set the name of the Set (CodeAreaSet) or the Area (CodeArea).<br/>When the pAreaID is 0 the Name is reserved for the Set (CodeAreaSet)
+jcWTDebugShow:Getsan                      EQUATE(_Show) !PROCEDURE(ULONG pSetID,ULONG pAreaID),ASTRING           !Get the name of the Set (CodeAreaSet) or Area (CodeArea)
+jcWTDebugShow:SetsanSet                   EQUATE(_Show) !PROCEDURE(ULONG pSetID,ASTRING pName),VIRTUAL           !Set the name of Set
+jcWTDebugShow:GetsanSet                   EQUATE(_Show) !PROCEDURE(ULONG pSetId),ASTRING,VIRTUAL                 !Get the name of the Set
+jcWTDebugShow:SetsanArea                  EQUATE(_Show) !PROCEDURE(ULONG pAreaID,ASTRING pName),VIRTUAL          !Set the name of Area according to the CurrentSet previously assigned with SetsanCurrentSet
+jcWTDebugShow:GetsanArea                  EQUATE(_Show) !PROCEDURE(ULONG pAreaId),ASTRING,VIRTUAL                !Get the name of the Area according to the CurrentSet previously assigned With SetsanCurrentSet
+jcWTDebugShow:SetCodeAreaSet              EQUATE(_Show) !PROCEDURE(ULONG pCodeAreaSet,<ULONG pCodeArea>),VIRTUAL   ! Set  CodeAreaSet to a particular defined within WhenTaskSet as well as WhenTask ITEMIZEs EQUATEs structures <br/> which they are declared within jcWhenTaskSet.equ file and the xWhenTask.equ where “x” defined the sources of the procedures part. <br/> The xWhenTask.equ represents the list of procedures equates of a program, application or classes. <br/> The first parameter must be p
+jcWTDebugShow:GetCodeAreaSet              EQUATE(_Show) !PROCEDURE(ULONG pCodeAreaSet,<ULONG pCodeArea>),BOOL,VIRTUAL ! Get CodeAreaSet to a particular defined within WhenTaskSet as well as WhenTask ITEMIZEs EQUATEs structures <br/> which they are declared within jcWhenTaskSet.equ file and the xWhenTask.equ where “x” defined the sources of the procedures part. <br/> The xWhenTask.equ represents the list of procedures equates of a program, application or classes. <br/> The first parameter must be
+jcWTDebugShow:SetCurrentWhenTaskDefinition   EQUATE(_Show) !PROCEDURE(BYTE pCurrentWhenTaskDefinition),VIRTUAL ! Set CurrentWhenTaskDefinition to the current When Task Definition where defined by one of the constant equate find in jcWhenTask.equ file.
+jcWTDebugShow:GetCurrentWhenTaskDefinition   EQUATE(_Show) !PROCEDURE(),BYTE,VIRTUAL                           ! Get CurrentWhenTaskDefinition to the current When Task Definition where defined by one of the constant equate find in jcWhenTask.equ file.
+jcWTDebugShow:SetCurrentCodeAreaSet       EQUATE(_Show) !PROCEDURE(ULONG pCodeAreaSet),VIRTUAL ! Set CurrentCodeAreaSet to the current code area set where defined by one of the constant equate find in jcWhenTaskset.equ file.
+jcWTDebugShow:GetCurrentCodeAreaSet       EQUATE(_Show) !PROCEDURE(),ULONG,VIRTUAL             ! Get CurrentCodeAreaSet to the current code area set where defined by one of the constant equate find in jcWhenTaskset.equ file.
+jcWTDebugShow:SetCurrentCodeArea          EQUATE(_Show) !PROCEDURE(ULONG pCodeArea),VIRTUAL        ! Set CurrentCodeArea to the current code area set where defined by one of the constant equate find in xWhenTaskt.equ file where "x" is the name of the class.
+jcWTDebugShow:GetCurrentCodeArea          EQUATE(_Show) !PROCEDURE(),ULONG,VIRTUAL                 ! Get CurrentCodeArea to the current code area set where defined by one of the constant equate find in xWhenTaskset.equ file where "x" is the name of the class.
+jcWTDebugShow:SetWhosCalling              EQUATE(_Show) !PROCEDURE(ULONG pCodeArea,<ULONG pCodeAreaSet>,<BOOL pState>),VIRTUAL  ! Set  WhosCalling
+jcWTDebugShow:GetWhosCalling              EQUATE(_Show) !PROCEDURE(ULONG pCodeArea,<ULONG pCodeAreaSet>),BOOL,VIRTUAL           ! Get  WhosCalling
+jcWTDebugShow:ClearWhosCalling            EQUATE(_Show) !PROCEDURE(),VIRTUAL                                         ! Clear the Entire WhosCalling
+jcWTDebugShow:SetHasToDo                  EQUATE(_Show) !PROCEDURE(ULONG pCodeArea,<ULONG pCodeAreaSet>,<BOOL HasToDOState>,<BOOL HasDoneState>),VIRTUAL    ! Set  HasToDO
+jcWTDebugShow:GetHasToDo                  EQUATE(_Show) !PROCEDURE(ULONG pCodeArea,<ULONG pCodeAreaSet>),BOOL,VIRTUAL           ! Get  HasToDO
+jcWTDebugShow:ClearHasToDo                EQUATE(_Show) !PROCEDURE(),VIRTUAL                       ! Clear the Entire HasToDo property array to FALSE
+jcWTDebugShow:SetTriggerOffHasToDO        EQUATE(_Show) !PROCEDURE(BOOL pTriggerOffHasToDO,<ULONG pCodeAreaSet>,<ULONG pCodeArea>),VIRTUAL ! Set  TriggerOffHasToDO. If TriggerOffHasToDO is set to true SetHasDone will SetHasToDO to FALSE.
+jcWTDebugShow:GetTriggerOffHasToDO        EQUATE(_Show) !PROCEDURE(<ULONG pCodeAreaSet>,<ULONG pCodeArea>),BOOL,VIRTUAL                 ! Get the state of  TriggerOffHasToDO used by SetHasDone.
+jcWTDebugShow:SetHasDone                  EQUATE(_Show) !PROCEDURE(ULONG pCodeArea,<ULONG pCodeAreaSet>,<BOOL HasDoneState>,<BOOL HasToDOState>),VIRTUAL ! Set  HasDone to a particular defined within WhenTask ITEMIZE EQUATE structure declared.<br/>The forth parameter BOOL HasToDO accept a TRUE or FALSE to activate or deactivate the state of HasToDO.
+jcWTDebugShow:GetHasDone                  EQUATE(_Show) !PROCEDURE(ULONG pCodeArea,<ULONG pCodeAreaSet>),BOOL,VIRTUAL                    ! Get  HasDone to a particular defined within WhenTask ITEMIZE EQUATE structure declared. <br/> HasDone ITEMIZE, PRE (WD) <br/> Set  HasDone to a particular defined within WhenTaskSet as well as WhenTask ITEMIZEs EQUATEs structures
+jcWTDebugShow:SetTriggerOffHasDone        EQUATE(_Show) !PROCEDURE(BOOL pTriggerOffHasDone,<ULONG pCodeAreaSet>,<ULONG pCodeArea>),VIRTUAL ! Set  TriggerOffHasDone. If TriggerOffHasDone is set to true SetHasDone will SetHasDone to FALSE.
+jcWTDebugShow:GetTriggerOffHasDone        EQUATE(_Show) !PROCEDURE(<ULONG pCodeAreaSet>,<ULONG pCodeArea>),BOOL,VIRTUAL                 ! Get the state of  TriggerOffHasDone used by SetHasDone.
+jcWTDebugShow:ClearHasDone                EQUATE(_Show) !PROCEDURE(),VIRTUAL                       ! Clear the Entire HasDone property array to FALSE
+jcWTDebugShow:ShowValues                  EQUATE(_Show) !PROCEDURE(<BYTE WhenTask>,<ULONG Set>,<ULONG Area>,<BOOL State>) !Show Values to DebugView
+jcWTDebugShow:ValidateArea                EQUATE(_Show) !PROCEDURE(BYTE pWhenTask,ULONG pSet,ULONG pArea)     !Validate the AreaID
+jcWTDebugShow:ValidateSet                 EQUATE(_Show) !PROCEDURE(BYTE pWhenTask,ULONG pSet)                 !Validate SetID according to WhenTask, SetID must be defined within CodeAreaSetDefinition
+jcWTDebugShow:SetMessageTrigger           EQUATE(_Show) !PROCEDURE(BOOL pMessageTrigger),VIRTUAL              !Set the MessageTrigger to TRUE or FALSE to turn on or off the message window on error statement.
+jcWTDebugShow:GetMessageTrigger           EQUATE(_Show) !PROCEDURE(),BOOL,VIRTUAL                             !Get the MessageTrigger to TRUE or FALSE to turn on or off the message window on error statement.
+jcWTDebugShow:ShowQsan                    EQUATE(_Show) !PROCEDURE(<BYTE Type>)                               !Show Qsan queue to DebugView two different ways to look at the queue Qsan
+jcWTDebugShow:ShowQwt                     EQUATE(_Show) !PROCEDURE(<BYTE Type>)                               !Show Qwt queue to DebugView two different ways to look at the queue Qwt
+jcWTDebugShow:ShowWTD                     EQUATE(_Show) !PROCEDURE()                                          !Show WTD is the list of current WhenTaskDefinition within WhenTask
+_jcWhenTaskShowEquates_

@@ -1,0 +1,95 @@
+!Used within QWhenTask assign to WhenTask BYTE field the main field of the queue
+WhenTaskDefinition    ITEMIZE(1),PRE(WTDef) !WhenTaskDefinition holds all the different aspect of the WhenTask concept from the CodeArea to what an area will do.
+CodeAreaSetDefinition   EQUATE !CodeAreaSet identifier definition that holds a code value set representationfrom WhenTaskSet   ITEMIZE,PRE(CAS) found in jcWhenTaskSet.equ file.
+CurrentSetArea          EQUATE !CurrentSetArea identifier definition that holds a <br/>code value according to the CurrentCodeAreaSet<br/>or CurrentCodeArea representation set from<br/>WhenTaskSet   ITEMIZE,PRE(CAS)<br/>found in jcWhenTaskSet.equ file.
+WhosCalling             EQUATE !WhosCalling identifier that holds the area (procedure or entity) coming from an area set (application, program, class or Data Multi Link Set).
+HasToDO                 EQUATE !HasToDO identifier that holds the area (procedure or entity) coming from an area set (application, program, class, Data Multi Link Set).
+TriggerOffHasToDO       EQUATE !TriggerHasToDO identifier that will trigger a switch to turn ON or OFF the HasToDO presently when ON it is validated in the SetHasDone() procedure. 
+HasDone                 EQUATE !HasDone identifier that holds the area (procedure or entity) coming from an area set (application, program, class or Data Multi Link Set).
+TriggerOffHasDone       EQUATE !TriggerHasDone identifier that will trigger a switch to turn ON or OFF the HasDone presently when ON it is validated in the SetHasToDO() procedure. 
+                      END
+!The seven Task Name
+jcWhenTask::Name:CodeAreaSetDefinition   EQUATE('Code Area Set Definition') !CodeAreaSet identifier definition that holds the name of the code value set representation from WhenTaskSet   ITEMIZE,PRE(CAS) found in jcWhenTaskSet.equ file.
+jcWhenTask::Name:CurrentSetArea          EQUATE('Current Set Area')         !CurrentSetArea identifier definition that holds the name of the code value set representating<br/>CurrentCodeAreaSet or CurrentCodeArea from WhenTaskSet   ITEMIZE,PRE(CAS) found in jcWhenTaskSet.equ file.
+jcWhenTask::Name:WhosCalling             EQUATE('Whos Calling')             !WhosCalling identifier that holds the area (procedure or entity) coming from an area set (application, program, class or Data Multi Link Set).
+jcWhenTask::Name:HasToDO                 EQUATE('Has To Do')                !HasToDO identifier that holds the area (procedure or entity) coming from an area set (application, program, class, Data Multi Link Set).
+jcWhenTask::Name:TriggerOffHasToDO       EQUATE('Trigger off Has To Do')    !TriggerHasToDO identifier that will trigger a switch to turn on or off the HasToDO presently it is validated in the SetHasDone() procedure. 
+jcWhenTask::Name:HasDone                 EQUATE('Has Done')                 !HasDone identifier that holds the area (procedure or entity) coming from an area set (application, program, class or Data Multi Link Set).
+jcWhenTask::Name:TriggerOffHasDone       EQUATE('Trigger off Has Done')     !TriggerHasDone identifier that will trigger a switch to turn on or off the HasDone presently it is validated in the SetHasToDO() procedure. 
+
+
+!Used within QWhenTask assign to Area ULONG field.<br/>Employed exclusively to define CodeAreaSet within the WhenTaskDefinition CodeAreaSetDefinition.<br/>The value of "0" represented by the equate jcWhenTask::WTDef:Initial will let us know this is<br/>the enlarge area of CodeAreaSet from CodeAreaSetDefinition and not one of the specified Area of a CodeAreaSet.<br/>This way the WhenTask list permits to have two defined areas the enlarge one CodeAreaSet and the CodeArea.
+jcWhenTask::WTDef:InitialArea  	        EQUATE(0) 
+
+!jcWhenTaskClass Error message Title
+jcWhenTask::Error:MessageTitle                    EQUATE('ERROR WHEN TASK MESSAGE')
+
+!jcWhenTaskClass Error messages
+jcWhenTask::Error:CurrentCodeAreaSetUnassigned    EQUATE('Current Code Area Set is unasssigned | A Code Area Set must be assigned to either CurrentCodeAreaSet procedure or | as a third parameter to SetState procedure')
+jcWhenTask::Error:CurrentCodeAreaUnassigned       EQUATE('Current Code Area is unasssigned | A Code Area Set must be assigned to either CurrentCodeArea procedure or | as a forth parameter to SetState procedure')
+
+!Used by WhenTaskInitState to validate if SetsanCurrentSet()<br/>has been called when SetCurrentCodeSet() is or vice versa.
+jcWhenTask::SetCurrentAlreadyDone                 EQUATE(2)
+
+!Used by GetState if the Area is undefined 
+jcWhenTask::Error:WhenTaskSetAreaNotFound         EQUATE('WhenTask on Set over Area Not found') !When an area state validation is performed and not defined this equate is returned presently used in GetState method
+jcWhenTask::Error:NotFound                        EQUATE('NOT FOUND')
+
+!san Error return by Getsan
+jcWhenTask::Error:sanSetOrAreaNotFound            EQUATE('san Set or Area name not found')
+
+!Constant for the jcDebugManager for the different possibilities to visualize the code within DebugView
+jcWhenTask::jcDebugManager:RespectingAreaShow     EQUATE(FALSE)
+  
+!Constant to trigger ON or OFF the Message Window on Error()
+jcWhenTask::MessageTrigger                        EQUATE(FALSE)
+
+
+!Below the antonyms EQUATES used as a boolean parameters, 
+!Presently used in
+!WhenTask concept with HasToDO and HasDone.
+!jcDebugManager
+!And procedure that accepts boolean parameters.
+Antonymes               ITEMIZE
+_:False                   EQUATE(0)
+_:True                    EQUATE
+_:Off                     EQUATE(0)
+_:ON                      EQUATE
+_:Close                   EQUATE(0)
+_:Open                    EQUATE
+_:Stop                    EQUATE(0)
+_:Start                   EQUATE
+_:Disable                 EQUATE(0)
+_:Enable                  EQUATE
+_:Inactive                EQUATE(0)
+_:Active                  EQUATE
+_:NotFunctional           EQUATE(0)
+_:Functional              EQUATE
+_:Disengage               EQUATE(0)
+_:Engage                  EQUATE
+_:Dead                    EQUATE(0)
+_:Alive                   EQUATE
+_:Sleap                   EQUATE(0)
+_:Awake                   EQUATE
+_:Fail                    EQUATE(0)
+_:Startup                 EQUATE
+_:Hiding                  EQUATE(0)
+_:Showing                 EQUATE
+_:Nothing                 EQUATE(0)
+_:Something               EQUATE
+_:No                      EQUATE(0)
+_:Yes                     EQUATE
+_:Bad                     EQUATE(0)
+_:Good                    EQUATE
+_:Unsuccessful            EQUATE(0)
+_:Successful              EQUATE
+_:Undone                  EQUATE(0)
+_:Done                    EQUATE
+_:End                     EQUATE(0)
+_:Begin                   EQUATE
+_:Terminated              EQUATE(0)
+_:Launched                EQUATE
+_:NotFound                EQUATE(0)
+_:Found                   EQUATE
+                        END
+ 
