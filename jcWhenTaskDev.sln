@@ -1,0 +1,132 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+# Clarion 2.1.0.2447
+Project("{12B76EC0-1D7B-4FA7-A7D0-C524288B48A1}") = "jcWhenTaskDev", "jcWhenTaskDev.cwproj", "{10229D3E-A174-44EF-A0F4-AA17D40F3C2E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Source Class", "Source Class", "{3145CA30-D4CB-404D-9B48-5FD4D46F98A6}"
+	ProjectSection(SolutionItems) = postProject
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ABC CLass", "ABC CLass", "{6A5952CC-8677-4BB1-8C8E-3B0001A0E520}"
+	ProjectSection(SolutionItems) = postProject
+		..\..\..\..\Clarion11\LibSrc\win\ABERROR.CLW = ..\..\..\..\Clarion11\LibSrc\win\ABERROR.CLW
+		..\..\..\..\Clarion11\LibSrc\win\ABERROR.INC = ..\..\..\..\Clarion11\LibSrc\win\ABERROR.INC
+		..\..\..\..\Clarion11\LibSrc\win\ABERROR.TRN = ..\..\..\..\Clarion11\LibSrc\win\ABERROR.TRN
+		..\..\..\..\Clarion11\LibSrc\win\ABFILE.CLW = ..\..\..\..\Clarion11\LibSrc\win\ABFILE.CLW
+		..\..\..\..\Clarion11\LibSrc\win\ABFILE.EQU = ..\..\..\..\Clarion11\LibSrc\win\ABFILE.EQU
+		..\..\..\..\Clarion11\LibSrc\win\ABFILE.INC = ..\..\..\..\Clarion11\LibSrc\win\ABFILE.INC
+		..\..\..\..\Clarion11\LibSrc\win\ABWINDOW.CLW = ..\..\..\..\Clarion11\LibSrc\win\ABWINDOW.CLW
+		..\..\..\..\Clarion11\LibSrc\win\ABWINDOW.INC = ..\..\..\..\Clarion11\LibSrc\win\ABWINDOW.INC
+		..\..\..\..\Clarion11\LibSrc\win\abbrowse.clw = ..\..\..\..\Clarion11\LibSrc\win\abbrowse.clw
+		..\..\..\..\Clarion11\LibSrc\win\ABBROWSE.EQU = ..\..\..\..\Clarion11\LibSrc\win\ABBROWSE.EQU
+		..\..\..\..\Clarion11\LibSrc\win\ABBROWSE.INC = ..\..\..\..\Clarion11\LibSrc\win\ABBROWSE.INC
+		..\..\..\..\Clarion11\LibSrc\win\ABBROWSE.TRN = ..\..\..\..\Clarion11\LibSrc\win\ABBROWSE.TRN
+		..\..\..\Clarion11\LibSrc\win\equates.clw = ..\..\..\Clarion11\LibSrc\win\equates.clw
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CHT Class", "CHT Class", "{12FC2AA9-EE4E-473B-8883-0ADD84F4425A}"
+	ProjectSection(SolutionItems) = postProject
+		..\..\..\..\Clarion11\accessory\libsrc\win\hndencrp.clw = ..\..\..\..\Clarion11\accessory\libsrc\win\hndencrp.clw
+		..\..\..\..\Clarion11\accessory\libsrc\win\hndencrp.inc = ..\..\..\..\Clarion11\accessory\libsrc\win\hndencrp.inc
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Joliciel Template", "Joliciel Template", "{2D2362B0-0153-47DF-894A-5995D75B60C0}"
+	ProjectSection(SolutionItems) = postProject
+		..\..\..\Template\Joliciel.tpl = ..\..\..\Template\Joliciel.tpl
+		..\..\..\Template\Joliciel.tpw = ..\..\..\Template\Joliciel.tpw
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Joliciel Class", "Joliciel Class", "{D93743B1-4427-489A-993D-C072B927AA77}"
+	ProjectSection(SolutionItems) = postProject
+		..\jcClassProjectOptions.inc = ..\jcClassProjectOptions.inc
+		..\jcDoc\LibSrc\Win\jcDoc.clw = ..\jcDoc\LibSrc\Win\jcDoc.clw
+		..\jcDoc\LibSrc\Win\jcDoc.inc = ..\jcDoc\LibSrc\Win\jcDoc.inc
+		..\jcError\LibSrc\Win\jcError.clw = ..\jcError\LibSrc\Win\jcError.clw
+		..\jcError\LibSrc\Win\jcError.inc = ..\jcError\LibSrc\Win\jcError.inc
+		..\jcError\LibSrc\Win\jcErrors.inc = ..\jcError\LibSrc\Win\jcErrors.inc
+		..\jcError\LibSrc\Win\jcErrors.trn = ..\jcError\LibSrc\Win\jcErrors.trn
+		..\jcError\LibSrc\Win\jcErrorShow.inc = ..\jcError\LibSrc\Win\jcErrorShow.inc
+		..\jcLog\LibSrc\Win\jcLog.clw = ..\jcLog\LibSrc\Win\jcLog.clw
+		..\jcLog\LibSrc\Win\jcLog.equ = ..\jcLog\LibSrc\Win\jcLog.equ
+		..\jcLog\LibSrc\Win\jcLog.inc = ..\jcLog\LibSrc\Win\jcLog.inc
+		..\jcLog\LibSrc\Win\jcLog.show = ..\jcLog\LibSrc\Win\jcLog.show
+		..\jcLog\LibSrc\Win\jcLogExternal.inc = ..\jcLog\LibSrc\Win\jcLogExternal.inc
+		..\jcLog\LibSrc\Win\jcLogMap.inc = ..\jcLog\LibSrc\Win\jcLogMap.inc
+		..\jcLog\LibSrc\Win\jcLogReadDoc.clw = ..\jcLog\LibSrc\Win\jcLogReadDoc.clw
+		..\jcStack\LibSrc\Win\jcStack.clw = ..\jcStack\LibSrc\Win\jcStack.clw
+		..\jcStack\LibSrc\Win\jcStack.INC = ..\jcStack\LibSrc\Win\jcStack.INC
+		..\jcWhenTask\LibSrc\Win\jcWhenTask.clw = ..\jcWhenTask\LibSrc\Win\jcWhenTask.clw
+		..\jcWhenTask\LibSrc\Win\jcWhenTask.equ = ..\jcWhenTask\LibSrc\Win\jcWhenTask.equ
+		..\jcWhenTask\LibSrc\Win\jcWhenTask.inc = ..\jcWhenTask\LibSrc\Win\jcWhenTask.inc
+		..\jcDebug\LibSrc\Win\jcDebug.equ = ..\jcDebug\LibSrc\Win\jcDebug.equ
+		..\jcDebug\LibSrc\Win\jcDebug.inc = ..\jcDebug\LibSrc\Win\jcDebug.inc
+		..\jcDebug\LibSrc\Win\jcDebug.show = ..\jcDebug\LibSrc\Win\jcDebug.show
+		..\jcDebug\LibSrc\Win\jcDebugPrivate.clw = ..\jcDebug\LibSrc\Win\jcDebugPrivate.clw
+		..\jcDebug\LibSrc\Win\jcDebugPrivate.inc = ..\jcDebug\LibSrc\Win\jcDebugPrivate.inc
+		..\jcBase\LibSrc\Win\jcBase.clw = ..\jcBase\LibSrc\Win\jcBase.clw
+		..\jcBase\LibSrc\Win\jcBase.equ = ..\jcBase\LibSrc\Win\jcBase.equ
+		..\jcBase\LibSrc\Win\jcBase.inc = ..\jcBase\LibSrc\Win\jcBase.inc
+		..\jcBase\LibSrc\Win\jcBaseShow.inc = ..\jcBase\LibSrc\Win\jcBaseShow.inc
+		..\jcBase\LibSrc\Win\jcBaseWhenTask.equ = ..\jcBase\LibSrc\Win\jcBaseWhenTask.equ
+		..\jcDML\LibSrc\Win\jcDML.clw = ..\jcDML\LibSrc\Win\jcDML.clw
+		..\jcDML\LibSrc\Win\jcDML.inc = ..\jcDML\LibSrc\Win\jcDML.inc
+		..\jcDML\LibSrc\Win\jcDMLShowINI.clw = ..\jcDML\LibSrc\Win\jcDMLShowINI.clw
+		..\jcDML\LibSrc\Win\jcDMLShowOptions.inc = ..\jcDML\LibSrc\Win\jcDMLShowOptions.inc
+		..\jcDML\LibSrc\Win\jcDMLShow.inc = ..\jcDML\LibSrc\Win\jcDMLShow.inc
+		..\jcDML\LibSrc\Win\jcDMLShow.equ = ..\jcDML\LibSrc\Win\jcDMLShow.equ
+		..\jcDML\LibSrc\Win\jcDMLWhenTask.equ = ..\jcDML\LibSrc\Win\jcDMLWhenTask.equ
+		..\jcDML\LibSrc\Win\jcDML.equ = ..\jcDML\LibSrc\Win\jcDML.equ
+		..\jcDML\LibSrc\Win\jcDMLErrors.trn = ..\jcDML\LibSrc\Win\jcDMLErrors.trn
+		..\jcDML\LibSrc\Win\jcDMLEntity.equ = ..\jcDML\LibSrc\Win\jcDMLEntity.equ
+		..\jcDML\LibSrc\Win\jcDMLErrors.inc = ..\jcDML\LibSrc\Win\jcDMLErrors.inc
+		..\jcDML\LibSrc\Win\jcDMLFields.equ = ..\jcDML\LibSrc\Win\jcDMLFields.equ
+		..\jcDML\LibSrc\Win\jcDMLTableHeader.equ = ..\jcDML\LibSrc\Win\jcDMLTableHeader.equ
+		..\jcField\LibSrc\Win\jcField.clw = ..\jcField\LibSrc\Win\jcField.clw
+		..\jcField\LibSrc\Win\jcField.equ = ..\jcField\LibSrc\Win\jcField.equ
+		..\jcField\LibSrc\Win\jcField.inc = ..\jcField\LibSrc\Win\jcField.inc
+		..\jcField\LibSrc\Win\jcFieldShow.equ = ..\jcField\LibSrc\Win\jcFieldShow.equ
+		..\jcField\LibSrc\Win\jcFieldShow.inc = ..\jcField\LibSrc\Win\jcFieldShow.inc
+		..\jcField\LibSrc\Win\jcFieldShowINI.clw = ..\jcField\LibSrc\Win\jcFieldShowINI.clw
+		..\jcField\LibSrc\Win\jcFieldShowOptions.inc = ..\jcField\LibSrc\Win\jcFieldShowOptions.inc
+		..\jcField\LibSrc\Win\jcFieldWhenTask.equ = ..\jcField\LibSrc\Win\jcFieldWhenTask.equ
+		..\jcDebug\LibSrc\Win\jcDebug.clw = ..\jcDebug\LibSrc\Win\jcDebug.clw
+		..\jcBase\LibSrc\Win\jcBaseWhenTaskSet.equ = ..\jcBase\LibSrc\Win\jcBaseWhenTaskSet.equ
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Capesoft", "Capesoft", "{91076DC0-43EF-407E-AF3F-048350A9D00E}"
+	ProjectSection(SolutionItems) = postProject
+		..\..\..\..\Clarion11\accessory\libsrc\win\StringTheory.clw = ..\..\..\..\Clarion11\accessory\libsrc\win\StringTheory.clw
+		..\..\..\..\Clarion11\accessory\libsrc\win\StringTheory.inc = ..\..\..\..\Clarion11\accessory\libsrc\win\StringTheory.inc
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{50ED51AD-B7FD-40A7-8FD7-78757E27A860}"
+	ProjectSection(SolutionItems) = postProject
+		LibSrc\Win\jcWhenTask.clw = LibSrc\Win\jcWhenTask.clw
+		LibSrc\Win\jcWhenTask.equ = LibSrc\Win\jcWhenTask.equ
+		LibSrc\Win\jcWhenTask.inc = LibSrc\Win\jcWhenTask.inc
+		LibSrc\Win\jcWhenTaskWhenTask.equ = LibSrc\Win\jcWhenTaskWhenTask.equ
+		LibSrc\Win\jcWhenTaskSet.equ = LibSrc\Win\jcWhenTaskSet.equ
+		LibSrc\Win\jcWhenTaskShow.equ = LibSrc\Win\jcWhenTaskShow.equ
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E49DB83D-97EA-4797-A145-FC235A9EA908}.Debug|Win32.Build.0 = Debug|Win32
+		{E49DB83D-97EA-4797-A145-FC235A9EA908}.Debug|Win32.ActiveCfg = Debug|Win32
+		{E49DB83D-97EA-4797-A145-FC235A9EA908}.Release|Win32.Build.0 = Release|Win32
+		{E49DB83D-97EA-4797-A145-FC235A9EA908}.Release|Win32.ActiveCfg = Release|Win32
+		{E70B2B61-B9B5-4ED0-93E6-32F38D271C34}.Debug|Win32.Build.0 = Debug|Win32
+		{E70B2B61-B9B5-4ED0-93E6-32F38D271C34}.Debug|Win32.ActiveCfg = Debug|Win32
+		{E70B2B61-B9B5-4ED0-93E6-32F38D271C34}.Release|Win32.Build.0 = Release|Win32
+		{E70B2B61-B9B5-4ED0-93E6-32F38D271C34}.Release|Win32.ActiveCfg = Release|Win32
+		{10229D3E-A174-44EF-A0F4-AA17D40F3C2E}.Debug|Win32.Build.0 = Debug|Win32
+		{10229D3E-A174-44EF-A0F4-AA17D40F3C2E}.Debug|Win32.ActiveCfg = Debug|Win32
+		{10229D3E-A174-44EF-A0F4-AA17D40F3C2E}.Release|Win32.Build.0 = Release|Win32
+		{10229D3E-A174-44EF-A0F4-AA17D40F3C2E}.Release|Win32.ActiveCfg = Release|Win32
+	EndGlobalSection
+EndGlobal

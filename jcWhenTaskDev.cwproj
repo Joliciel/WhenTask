@@ -1,0 +1,40 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectGuid>{79AAB0DC-B577-486F-B202-359425D0AA59}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">Win32</Platform>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>jcWhenTaskDev</RootNamespace>
+    <AssemblyName>jcWhenTaskDev</AssemblyName>
+    <OutputName>jcWhenTaskDev</OutputName>
+    <DefineConstants>_ABCLinkMode_=&gt;1%3b_ABCDllMode_=&gt;0%3b_Export_Joliciel_Classes_=&gt;1%3bStringTheoryLinkMode=&gt;1%3bStringTheoryDllMode=&gt;0%3b_SelectingjcDMLjcDebugShow_=&gt;0%3b_SelectingjcDebugShow_=&gt;0</DefineConstants>
+    <stack_size>16384</stack_size>
+    <CopyCore>True</CopyCore>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>True</DebugSymbols>
+    <DebugType>Full</DebugType>
+    <vid>full</vid>
+    <check_stack>True</check_stack>
+    <check_index>True</check_index>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>False</DebugSymbols>
+    <DebugType>None</DebugType>
+    <vid>full</vid>
+    <check_stack>True</check_stack>
+    <check_index>True</check_index>
+    <warnings>off</warnings>
+    <GenerateMap>True</GenerateMap>
+    <line_numbers>True</line_numbers>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="jcWhenTaskDev.clw" />
+  </ItemGroup>
+  <Import Project="$(ClarionBinPath)\SoftVelocity.Build.Clarion.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>CopySourceFromLibSrcBefore.cmd WhenTask</PreBuildEvent>
+    <PostBuildEvent>CopySourceFromLibSrcAfter.cmd</PostBuildEvent>
+  </PropertyGroup>
+</Project>
