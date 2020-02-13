@@ -1,0 +1,13 @@
+﻿!ABCIncludeFile(Joliciel)
+	INCLUDE('jcClassProjectOptions.inc'),ONCE
+!
+! Joliciel 2012
+OMIT('_EndOfInclude_',_jcDebug_)
+_jcDebug_ EQUATE(1)
+
+
+iDebug    INTERFACE
+Fetching    PROCEDURE	
+Updating    PROCEDURE	
+          END
+!_EndOfInclude_

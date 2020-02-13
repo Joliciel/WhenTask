@@ -1,0 +1,175 @@
+!jcDebugManager EQUATEs 
+jcDebug::jcDebugManager   EQUATE('jcDebugManager')       
+jcDebug::Application        EQUATE('APPLICATION')
+jcDebug::Program            EQUATE('PROGRAM')
+jcDebug::Class              EQUATE('CLASS')
+jcDebug::Method             EQUATE('METHOD')
+jcDebug::Procedure          EQUATE('PROCEDURE')       
+jcDebug::Routine            EQUATE('ROUTINE')
+jcDebug::Code               EQUATE('CODE')
+jcDebug::Embed              EQUATE('EMBED')
+jcDebug::EXECUTE            EQUATE('EXECUTE')
+jcDebug::BEGIN              EQUATE('BEGIN')
+jcDebug::CASE               EQUATE('CASE')
+jcDebug::OF                 EQUATE('OF')
+jcDebug::Loop               EQUATE('LOOP')
+jcDebug::If                 EQUATE('IF')
+jcDebug::IfOnTrue           EQUATE('IF ON TRUE')
+jcDebug::IfOnFalse          EQUATE('IF ON FALSE')
+jcDebug::Si                 EQUATE('IF')
+jcDebug::SiOnTrue           EQUATE('IF ON TRUE')
+jcDebug::SiOnFalse          EQUATE('IF ON FALSE')
+jcDebug::Doc                EQUATE('DOC')
+jcDebug::Documentation      EQUATE('DOCUMENTATION')
+jcDebug::Help               EQUATE('HELP')
+jcDebug::Helper             EQUATE('HELPER')
+jcDebug::Note               EQUATE('NOTE')
+jcDebug::Header             EQUATE('HEADER')
+jcDebug::Comment            EQUATE('COMMENT')
+jcDebug::Description        EQUATE('DESCRIPTION')
+jcDebug::Error		          EQUATE('ERROR')
+jcDebug::Start		          EQUATE('START')
+jcDebug::End			          EQUATE('END')
+jcDebug::Thread             EQUATE('THREAD')
+jcDebug::Object		          EQUATE('OBJECT')
+jcDebug::Detail 	          EQUATE('DETAIL')
+jcDebug::Erreur             EQUATE('ERROR')
+jcDebug::Assert             EQUATE('ASSERT')
+jcDebug::Warning            EQUATE('WARNING')
+jcDebug::Notify             EQUATE('NOTIFY')
+jcDebug::Notification       EQUATE('NOTIFICATION')
+
+jcDebug::DefaultSpaceMargin     EQUATE(5)
+jcDebug::DefaultIndentMargin    EQUATE(4)
+jcDebug::DoDebugPrefix          EQUATE(TRUE)
+jcDebug::DebugPrefix            EQUATE('<:|')
+
+
+!Equality EQUATES
+jcDebug::OpenBracket        EQUATE('[ ')
+jcDebug::OpenCloseBracket   EQUATE('[]')
+jcDebug::CloseBracket       EQUATE(' ]')
+jcDebug::Space              EQUATE(' ')
+jcDebug::Dot			          EQUATE('.')
+jcDebug::Equal              EQUATE('=')
+jcDebug::Colon              EQUATE(':')
+jcDebug::Hyphen             EQUATE('-')
+jcDebug::LessThan           EQUATE('<')
+jcDebug::GreaterThan        EQUATE('>')
+jcDebug::LessThanEqualTo    EQUATE('<<=')
+jcDebug::GreaterThanEqualTo EQUATE('>=')
+jcDebug::NotEqualTo         EQUATE('<>')
+
+
+_False                     EQUATE(0)
+
+_Show                      EQUATE(1)
+_Hide                      EQUATE(0)
+
+_Started                   EQUATE(1)
+_Ended                     EQUATE(0)
+
+
+! jcDebugManager EQUATEs Shows
+! The Show EQUATEs manage the AreaTypes and Areas within the jcDebugManager
+! The AreaType = Method Show
+! The Area = Name Of the section with its definition
+! Example
+!  AreaType = jcDebug::MethodShow
+!  Area = 'Method Show.jcField.Save(STRING EN,STRING LA,STRING LI,STRING EL)'
+! The Area include the jcDebug::MethodShow equate as a prefix this way we know exactly the type of show we are on
+! Example
+!  AreaType = jcDebug::ApplicationShow
+!  Area = 'Application Show.jcDebugDev'
+! The Area include the jcDebug::Application
+!The following are equates that manage the show action within See() method
+!it is TRUE or FALSE, by default all are set to true
+!SetShow() will 
+jcDebug::Show               EQUATE('Show')                  !
+jcDebug::ApplicationShow    EQUATE('Application Show')
+jcDebug::ProgramShow        EQUATE('Program Show')
+jcDebug::ClassShow          EQUATE('Class Show')
+jcDebug::MethodShow         EQUATE('Method Show')
+jcDebug::ProcedureShow      EQUATE('Procedure Show')
+jcDebug::RoutineShow        EQUATE('Routine Show')
+jcDebug::CodeShow           EQUATE('Code Show')
+jcDebug::EmbedShow          EQUATE('Embed Show')
+jcDebug::EXECUTEShow        EQUATE('EXECUTE Show')
+jcDebug::BEGINShow          EQUATE('BEGIN Show')
+jcDebug::CASEShow           EQUATE('CASE Show')
+jcDebug::OFShow             EQUATE('OF Show')
+jcDebug::LoopShow           EQUATE('Loop Show')
+jcDebug::IfShow             EQUATE('If Show')
+jcDebug::IfOnTrueShow       EQUATE('If on true Show')
+jcDebug::IfOnFalseShow      EQUATE('If on false Show')
+jcDebug::SIShow             EQUATE('If Show')
+jcDebug::SIOnTrueShow       EQUATE('If on true Show')
+jcDebug::SIOnFalseShow      EQUATE('If on false Show')
+jcDebug::NoteShow           EQUATE('Note Show')
+jcDebug::HeaderShow         EQUATE('Header Show')
+jcDebug::CommentShow        EQUATE('Comment Show')
+jcDebug::DescriptionShow    EQUATE('Description Show')
+jcDebug::DocShow            EQUATE('Doc Show')
+jcDebug::DocumentationShow  EQUATE('Documentation Show')
+jcDebug::HelpShow           EQUATE('Help Show')
+jcDebug::HelperShow         EQUATE('Helper Show')
+jcDebug::ErreurShow         EQUATE('Error Show')
+jcDebug::AssertShow         EQUATE('Assert Show')
+jcDebug::WarningShow        EQUATE('Warning Show')
+jcDebug::NotifyShow         EQUATE('Notify Show')
+jcDebug::NotificationShow   EQUATE('Notification Show')
+
+jcDebug::NoData   EQUATE('No Data')
+
+jcDebug::Default_SetRepetitionLength              EQUATE(150)
+jcDebug::Default_SetSeeVariablesRepetitionLength  EQUATE(150)
+jcDebug::Default_SetLine                          EQUATE(130)
+
+JC_DEBUG_jcDebugManager_SetAssertState  EQUATE(2) !This EQUATE is the AssertLevel call. <br/> SetAssertState establish the ASSERT invocation level,<br/> When calling GetAssertState(AssertLevel), the AssertLevel is verified. <br/> If the AssertLevel is larger or equal to the established level then the ASSERT statement is invoked. <br/> This is usefull when we want to bypass and ASSERT statement. <br/> ex. in the Init() Method.<br/> SetAssertState(3). <br/>   Later somewhere in the program. <br/>   IF SELF.GetAssertState(1) THEN ASSERT(). The previous statement will bypass the ASSERT call. <br/>   IF SELF.GetAssertState(10) THEN ASSERT(). The previous statement will execute the ASSERT call.
+JC_DEBUG_jcDebugManager_SetDebugState   EQUATE(TRUE) !Set the Debug State set by SetDebugState, RETURN SELF.DebugState
+JC_DEBUG_jcDebugManager_DefaultMargin   EQUATE(0) !This is the default Margin    
+JC_DEBUG_jcDebugManager_IndentMargin    EQUATE(1) !This is the Ident Margin
+JC_LOG_jcLogManager_SetLogFormatOnClassName  EQUATE(4)       !Used as a parameter of SetLogFormat() in the init method. Set log Format use by SetLogFileName second parameter LogFormat,<br/> LogFormat 1 = FileName only <br/> LogFormat 2 = ApplicationName-FileName <br/> LogFormat 3 = ApplicationName-Date-Time-(FileName) <br/> LogFormat 4 = ClassName-Date-Time-(FileName)
+
+!Assign in jcDebugManager.Init()to the jcDebugManager.SetRespectingAreaShow()<br/>and be used by jcDebugManager.PrepareShow() through jcDebugManager.GetRespectingAreaShow() to validate<br/>if the PrepareShow must respect or not the CurrentShow set.<br/>A value of TRUE will respect the CurrentShow in PrepareShow procedure<br/>otherwise if a Show parameter is assigned FALSE will not respect the currentShow.
+JC_DEBUG_jcDebugManager_RespectingAreaShow    EQUATE(TRUE) 
+
+JC_DEBUG_SHOW EQUATE(_Show)
+JC_DEBUG_SHOW_jcDebugManagerPrivate_SetDebugState       EQUATE(_Show)
+!Use in jcDebugManager.SetupShow
+JC_DEBUG_SHOW_jcDebugManager_ShowingCurrentMethodValue  EQUATE(TRUE)
+JC_DEBUG_SHOW_jcDebugManager_ShowingValue               EQUATE(TRUE)
+JC_DEBUG_SHOW_jcDebugManager_ShowingSpaceMargin         EQUATE(FALSE)
+JC_DEBUG_SHOW_jcDebugManager_ApplicationShow            EQUATE(TRUE)
+JC_DEBUG_SHOW_jcDebugManager_ProgramShow                EQUATE(TRUE)
+JC_DEBUG_SHOW_jcDebugManager_ClassShow                  EQUATE(TRUE)
+JC_DEBUG_SHOW_jcDebugManager_MethodShow                 EQUATE(TRUE)
+JC_DEBUG_SHOW_jcDebugManager_ProcedureShow              EQUATE(TRUE)
+JC_DEBUG_SHOW_jcDebugManager_RoutineShow                EQUATE(TRUE)
+JC_DEBUG_SHOW_jcDebugManager_CodeShow                   EQUATE(TRUE)
+JC_DEBUG_SHOW_jcDebugManager_EmbedShow                  EQUATE(TRUE)
+JC_DEBUG_SHOW_jcDebugManager_EXECUTEShow                EQUATE(TRUE)
+JC_DEBUG_SHOW_jcDebugManager_BEGINShow                  EQUATE(TRUE)
+JC_DEBUG_SHOW_jcDebugManager_CASEShow                   EQUATE(TRUE)
+JC_DEBUG_SHOW_jcDebugManager_OFShow                     EQUATE(TRUE)
+JC_DEBUG_SHOW_jcDebugManager_LoopShow                   EQUATE(TRUE)
+JC_DEBUG_SHOW_jcDebugManager_IFShow                     EQUATE(TRUE)
+JC_DEBUG_SHOW_jcDebugManager_IfOnTrueShow               EQUATE(TRUE)
+JC_DEBUG_SHOW_jcDebugManager_IfOnFalseShow              EQUATE(TRUE)
+JC_DEBUG_SHOW_jcDebugManager_SIShow                     EQUATE(TRUE)
+JC_DEBUG_SHOW_jcDebugManager_SIOnTrueShow               EQUATE(TRUE)
+JC_DEBUG_SHOW_jcDebugManager_SIOnFalseShow              EQUATE(TRUE)
+JC_DEBUG_SHOW_jcDebugManager_Show                       EQUATE(TRUE)
+JC_DEBUG_SHOW_jcDebugManager_NoteShow                   EQUATE(TRUE)
+JC_DEBUG_SHOW_jcDebugManager_HeaderShow                 EQUATE(TRUE)
+JC_DEBUG_SHOW_jcDebugManager_DescriptionShow            EQUATE(TRUE)
+JC_DEBUG_SHOW_jcDebugManager_CommentShow                EQUATE(TRUE)
+JC_DEBUG_SHOW_jcDebugManager_DocShow                    EQUATE(TRUE)
+JC_DEBUG_SHOW_jcDebugManager_DocumentationShow          EQUATE(TRUE)
+JC_DEBUG_SHOW_jcDebugManager_HelpShow                   EQUATE(TRUE)
+JC_DEBUG_SHOW_jcDebugManager_HelperShow                 EQUATE(TRUE)
+JC_DEBUG_SHOW_jcDebugManager_ErreurShow                 EQUATE(TRUE)
+JC_DEBUG_SHOW_jcDebugManager_ASsertShow                 EQUATE(TRUE)
+JC_DEBUG_SHOW_jcDebugManager_WarningShow                EQUATE(TRUE)
+JC_DEBUG_SHOW_jcDebugManager_NotifyShow                 EQUATE(TRUE)
+JC_DEBUG_SHOW_jcDebugManager_NotificationShow           EQUATE(TRUE)
