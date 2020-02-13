@@ -1,0 +1,21 @@
+!jcStack WhenTask procedure equate list identifiers
+!The WhenTask concept processed through WhosCalling, HasToDo and HasDone
+
+
+!xyz                                      EQUATE !PROCEDURE
+!jcStackManager jcStack
+WhenTask                                ITEMIZE,PRE(WTStk)
+Init                                      EQUATE !PROCEDURE (),VIRTUAL        !initilized the stack manager class
+Kill                                      EQUATE !PROCEDURE ()                !Killing the stack manager class instances
+isEmpty                                   EQUATE !PROCEDURE (),BYTE           !Do the stack is still in memory
+outOfMemory                               EQUATE !PROCEDURE (stackNode t),BYTE  !Are we out of memory
+push                                      EQUATE !PROCEDURE (ANY Value),BYTE,PROC  !Push the stack on top with the parameter value
+pop                                       EQUATE !PROCEDURE (),BYTE,PROC      !Pop the stack back to the previous node
+top                                       EQUATE !PROCEDURE (),ANY,PROC       !What's on the top of the stack
+stackSum                                  EQUATE !PROCEDURE (),LONG              !What's the stack sum
+stackSum2                                 EQUATE !PROCEDURE (stackNode t),LONG  !Calculate the stack sum
+stack                                     EQUATE !PROCEDURE (stackNode s)     !stack the current node to the stackQueue
+add                                       EQUATE !PROCEDURE (),VIRTUAL        !add to the stackQueue assignment must be done previously
+Construct                                 EQUATE !PROCEDURE (),PROTECTED      !Construct the stack manager class instance
+Destruct                                  EQUATE !PROCEDURE (),PROTECTED      !Destroy the stack manager class instance
+                                        END
